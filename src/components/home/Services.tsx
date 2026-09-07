@@ -13,7 +13,7 @@ export function Services() {
           description="Más que servicios sueltos, armamos una experiencia completa según tu evento y las edades de tus invitados."
         />
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
             <article
               key={service.id}

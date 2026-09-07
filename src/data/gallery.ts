@@ -3,8 +3,6 @@
 // To add a real photo: replace `src` with the image path and keep `alt`
 // descriptive in Spanish. New items can be appended freely.
 
-import { brandedPlaceholder } from "../lib/placeholder"
-
 export type GalleryCategory =
   | "pintacaritas"
   | "animacion"
@@ -64,27 +62,12 @@ export const GALLERY: GalleryItem[] = [
     caption: "Juegos y burbujas",
   },
   {
-    id: "g5",
-    src: ph(1200, 800, "grupo de familias disfrutando una celebración"),
-    alt: "Familias disfrutando de una celebración con animación",
-    category: "eventos",
-    caption: "Celebración familiar",
-    span: "wide",
-  },
-  {
     id: "g6",
     src: ph(700, 900, "diseño de pintacaritas de tigre en niño"),
     alt: "Niño con diseño de tigre pintado en la cara",
     category: "pintacaritas",
     caption: "Diseños personalizados",
     span: "tall",
-  },
-  {
-    id: "g7",
-    src: ph(700, 700, "animador con personaje disfrazado saludando"),
-    alt: "Personaje disfrazado saludando a los invitados",
-    category: "animacion",
-    caption: "Personajes y disfraces",
   },
   {
     id: "g8",

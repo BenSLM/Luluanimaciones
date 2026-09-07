@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import { Link, NavLink, useLocation } from "react-router-dom"
+import { AnimatePresence, motion } from "motion/react"
 import { WhatsAppButton } from "./WhatsAppButton"
 import { WHATSAPP_MESSAGES } from "../data/site"
 
@@ -90,33 +92,82 @@ export function Header() {
         </button>
       </div>
 
-      {open && (
-        <div
-          id="menu-movil"
-          className="border-t border-borde bg-crema lg:hidden"
-        >
-          <nav className="contenedor flex flex-col gap-1 py-4" aria-label="Menú móvil">
-            {NAV.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.end}
-                className="rounded-xl px-4 py-3 text-base font-semibold text-tinta hover:bg-rosa-suave/60"
+      {createPortal(
+        <AnimatePresence>
+          {open && (
+            <>
+            <motion.div
+              aria-hidden="true"
+              className="fixed inset-0 z-50 bg-tinta/40 backdrop-blur-sm lg:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setOpen(false)}
+            />
+            <motion.aside
+              id="menu-movil"
+              className="fixed inset-y-0 left-0 z-[60] flex w-72 max-w-[85vw] flex-col overflow-y-auto border-r border-borde bg-crema shadow-2xl lg:hidden"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menú móvil"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            >
+              <div className="flex items-center justify-between border-b border-borde px-5 py-4">
+                <span className="font-display text-lg font-extrabold tracking-tight">
+                  Lulu<span className="text-rosa"> Animaciones</span>
+                </span>
+                <button
+                  type="button"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-borde bg-white text-tinta"
+                  aria-label="Cerrar menú"
+                  onClick={() => setOpen(false)}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    className="h-5 w-5"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <nav
+                className="flex flex-col gap-1 px-4 py-5"
+                aria-label="Menú móvil"
               >
-                {item.label}
-              </NavLink>
-            ))}
-            <div className="mt-2">
-              <WhatsAppButton
-                message={WHATSAPP_MESSAGES.general}
-                size="lg"
-                className="w-full"
-              >
-                Cotizar por WhatsApp
-              </WhatsAppButton>
-            </div>
-          </nav>
-        </div>
+                {NAV.map((item) => (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={item.end}
+                    className="rounded-xl px-4 py-3 text-base font-semibold text-tinta hover:bg-rosa-suave/60"
+                  >
+                    {item.label}
+                  </NavLink>
+                ))}
+                <div className="mt-3">
+                  <WhatsAppButton
+                    message={WHATSAPP_MESSAGES.general}
+                    size="lg"
+                    className="w-full"
+                  >
+                    Cotizar por WhatsApp
+                  </WhatsAppButton>
+                </div>
+              </nav>
+            </motion.aside>
+            </>
+          )}
+        </AnimatePresence>,
+        document.body,
       )}
     </header>
   )

@@ -35,12 +35,4 @@ export const SERVICES: Service[] = [
     image: ph(800, 600, "juegos y actividades para niños en fiesta"),
     imageAlt: "Juegos y actividades preparados para el evento",
   },
-  {
-    id: "personajes",
-    name: "Personajes y disfraces",
-    description:
-      "Personajes y disfraces que suman magia al momento y hacen que la celebración sea aún más memorable.",
-    image: ph(800, 600, "personaje disfrazado saludando en fiesta"),
-    imageAlt: "Personaje disfrazado durante una celebración",
-  },
 ]
