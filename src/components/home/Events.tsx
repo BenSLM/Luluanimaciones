@@ -41,7 +41,7 @@ export function Events() {
                     className={`pointer-events-none absolute -inset-3 rounded-full blur-xl ${event.glow}`}
                   />
                   <span
-                    className={`relative flex h-16 w-16 items-center justify-center rounded-full shadow-md ${event.tone}`}
+                    className={`relative flex h-16 w-16 items-center justify-center rounded-full shadow-carta ${event.tone}`}
                   >
                     <Icon
                       className="h-7 w-7 text-tinta"

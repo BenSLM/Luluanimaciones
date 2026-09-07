@@ -26,6 +26,25 @@
   --radius-card: 1.25rem; /* informative cards */
   --radius-marca: 1.5rem; /* main surfaces */
   --radius-burbuja: 2rem 0.75rem; /* hero elements / large CTAs (asymmetric) */
+
+  /*
+    Soft layered shadows in neutral black tones.
+    Near layer grounds the element; far layer gives gentle depth.
+  */
+  --shadow-carta: 0 1px 2px rgb(0 0 0 / 0.06),
+    0 10px 22px -6px rgb(0 0 0 / 0.18); /* cards sobre fondo crema */
+  --shadow-foto: 0 1px 2px rgb(0 0 0 / 0.05),
+    0 12px 26px -8px rgb(0 0 0 / 0.2); /* fotos / grid editorial */
+  --shadow-elevada: 0 4px 12px -2px rgb(0 0 0 / 0.12),
+    0 18px 34px -8px rgb(0 0 0 / 0.3); /* hover / superficies destacadas */
+  --shadow-burbuja: 0 4px 12px -4px rgb(0 0 0 / 0.12),
+    0 24px 48px -12px rgb(0 0 0 / 0.28); /* CTA protagonista */
+  --shadow-header: 0 1px 2px rgb(0 0 0 / 0.04),
+    0 10px 24px -16px rgb(0 0 0 / 0.18); /* header sticky */
+  --shadow-burbuja: 0 4px 12px -6px rgb(43 36 56 / 0.12),
+    0 28px 56px -24px rgb(255 176 217 / 0.55); /* CTA protagonista */
+  --shadow-header: 0 1px 2px rgb(43 36 56 / 0.04),
+    0 10px 24px -16px rgb(43 36 56 / 0.18); /* header sticky */
 }
 
 @layer base {

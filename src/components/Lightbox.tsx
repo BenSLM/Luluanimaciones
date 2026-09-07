@@ -96,7 +96,7 @@ export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
         transition={{ type: "spring", stiffness: 260, damping: 26 }}
-        className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-marca bg-crema"
+        className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-marca bg-crema shadow-elevada"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative max-h-[70vh] w-full bg-rosa-suave">

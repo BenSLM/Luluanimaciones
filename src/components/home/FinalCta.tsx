@@ -12,7 +12,7 @@ export function FinalCta() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-burbuja bg-rosa px-6 py-14 text-center md:px-12 md:py-20"
+          className="relative overflow-hidden rounded-burbuja bg-rosa px-6 py-14 text-center shadow-burbuja md:px-12 md:py-20"
         >
           <motion.div
             aria-hidden="true"

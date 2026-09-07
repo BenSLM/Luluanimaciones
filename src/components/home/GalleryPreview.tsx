@@ -48,7 +48,7 @@ export function GalleryPreview() {
                 variants={scaleIn}
                 onClick={() => setActive(i)}
                 aria-label={`Ver foto: ${item.caption}`}
-                className={`group relative overflow-hidden rounded-card bg-rosa-suave ${spanClass}`}
+                className={`group relative overflow-hidden rounded-card bg-rosa-suave shadow-foto transition-shadow duration-300 hover:shadow-elevada ${spanClass}`}
               >
                 <img
                   src={item.src}

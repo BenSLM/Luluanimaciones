@@ -30,7 +30,7 @@ export function Services() {
                 y: -6,
                 transition: { type: "spring", stiffness: 300, damping: 24 },
               }}
-              className="group flex flex-col overflow-hidden rounded-card border border-borde bg-white transition-shadow hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-card border border-borde bg-white shadow-carta transition-shadow duration-300 hover:shadow-elevada"
             >
               <div className="aspect-[4/3] overflow-hidden bg-rosa-suave">
                 <img

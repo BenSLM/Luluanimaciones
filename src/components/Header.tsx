@@ -32,7 +32,7 @@ export function Header() {
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-0 z-40 border-b border-borde bg-crema/90 backdrop-blur-md"
+      className="sticky top-0 z-40 border-b border-borde bg-crema/90 shadow-header backdrop-blur-md"
     >
       <div className="contenedor flex h-16 items-center justify-between gap-4 md:h-20">
         <Link
