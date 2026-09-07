@@ -36,7 +36,7 @@ export function Header() {
           aria-label="Lulu Animaciones, ir al inicio"
         >
           <img
-            src="/logo-lulu.jpg"
+            src="/images/logo-lulu.jpg"
             alt=""
             className="h-10 w-10 rounded-sm object-cover md:h-11 md:w-11"
           />

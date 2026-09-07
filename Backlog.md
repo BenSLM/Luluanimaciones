@@ -67,21 +67,21 @@ Especificación aprobada: escala reutilizable de radios aplicados según funció
 
 ## 10. Footer "hecho con ❤️" + eliminar páginas legales
 
-- [ ] **Footer — reemplazar el bloque legal por "made with love ❤️"**
+- [x] **Footer — reemplazar el bloque legal por "made with love ❤️"**
   Quitar "© {year} Lulu Animaciones. Todos los derechos reservados." y los enlaces de "Política de privacidad / Términos y condiciones"; poner el clásico "hecho con ❤️".
   `src/components/Footer.tsx:71-83`
 
-- [ ] **Eliminar `PrivacyPage.tsx`**
+- [x] **Eliminar `PrivacyPage.tsx`**
   Borrar `src/pages/PrivacyPage.tsx`.
 
-- [ ] **Eliminar `TermsPage.tsx`**
+- [x] **Eliminar `TermsPage.tsx`**
   Borrar `src/pages/TermsPage.tsx`.
 
-- [ ] **App — quitar rutas de privacidad y términos**
+- [x] **App — quitar rutas de privacidad y términos**
   Eliminar las rutas `/privacidad` y `/terminos` y sus imports.
   `src/App.tsx:8-9,27-28`
 
-- [ ] **Eliminar `LegalPage.tsx` (quedará sin uso)**
+- [x] **Eliminar `LegalPage.tsx` (quedará sin uso)**
   Una vez fuera las páginas, eliminar el componente compartido si queda huérfano.
   `src/components/LegalPage.tsx`
 

@@ -5,8 +5,6 @@ import { FloatingWhatsApp } from "./components/FloatingWhatsApp"
 import { ScrollManager } from "./components/ScrollManager"
 import HomePage from "./pages/HomePage"
 import GalleryPage from "./pages/GalleryPage"
-import PrivacyPage from "./pages/PrivacyPage"
-import TermsPage from "./pages/TermsPage"
 import NotFoundPage from "./pages/NotFoundPage"
 
 export default function App() {
@@ -24,8 +22,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/trabajos" element={<GalleryPage />} />
-          <Route path="/privacidad" element={<PrivacyPage />} />
-          <Route path="/terminos" element={<TermsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
