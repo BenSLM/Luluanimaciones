@@ -7,5 +7,9 @@ export default defineConfig({
   server: {
     host: true,
     allowedHosts: true,
+    watch: {
+      usePolling: true,
+      interval: 150,
+    },
   },
 })
