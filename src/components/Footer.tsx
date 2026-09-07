@@ -12,7 +12,7 @@ export function Footer() {
             <img
               src="/logo-lulu.jpg"
               alt=""
-              className="h-11 w-11 rounded-xl object-cover"
+              className="h-11 w-11 rounded-sm object-cover"
             />
             <span className="font-display text-xl font-extrabold">
               Lulu Animaciones

@@ -38,7 +38,7 @@ export function Header() {
           <img
             src="/logo-lulu.jpg"
             alt=""
-            className="h-10 w-10 rounded-xl object-cover md:h-11 md:w-11"
+            className="h-10 w-10 rounded-sm object-cover md:h-11 md:w-11"
           />
           <span className="font-display text-lg font-extrabold leading-none tracking-tight md:text-xl">
             Lulu<span className="text-rosa"> Animaciones</span>
@@ -72,7 +72,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-borde bg-white text-tinta lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-sm border border-borde bg-white text-tinta lg:hidden"
           aria-expanded={open}
           aria-controls="menu-movil"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -122,7 +122,7 @@ export function Header() {
                 </span>
                 <button
                   type="button"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-borde bg-white text-tinta"
+                  className="flex h-10 w-10 items-center justify-center rounded-sm border border-borde bg-white text-tinta"
                   aria-label="Cerrar menú"
                   onClick={() => setOpen(false)}
                 >
@@ -148,7 +148,7 @@ export function Header() {
                     key={item.to}
                     to={item.to}
                     end={item.end}
-                    className="rounded-xl px-4 py-3 text-base font-semibold text-tinta hover:bg-rosa-suave/60"
+                    className="rounded-sm px-4 py-3 text-base font-semibold text-tinta hover:bg-rosa-suave/60"
                   >
                     {item.label}
                   </NavLink>

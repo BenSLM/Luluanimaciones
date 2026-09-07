@@ -53,7 +53,7 @@ export function Hero() {
         {/* Photo-forward composition */}
         <div className="relative">
           <div className="grid grid-cols-5 grid-rows-6 gap-3 md:gap-4">
-            <div className="col-span-3 row-span-6 overflow-hidden rounded-marca bg-rosa-suave shadow-sm">
+            <div className="col-span-3 row-span-6 overflow-hidden rounded-burbuja bg-rosa-suave shadow-sm">
               <img
                 src="/placeholder.svg?height=900&width=650&query=animadora sonriendo con nino en fiesta colorida"
                 alt="Animadora de Lulu compartiendo con un niño durante una fiesta"
@@ -61,14 +61,14 @@ export function Hero() {
                 fetchPriority="high"
               />
             </div>
-            <div className="col-span-2 row-span-3 overflow-hidden rounded-marca bg-azul-suave shadow-sm">
+            <div className="col-span-2 row-span-3 overflow-hidden rounded-card bg-azul-suave shadow-sm">
               <img
                 src="/placeholder.svg?height=440&width=440&query=pintacaritas colorido en nina feliz"
                 alt="Niña feliz con pintacaritas de colores"
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="col-span-2 row-span-3 overflow-hidden rounded-marca bg-rosa/40 shadow-sm">
+            <div className="col-span-2 row-span-3 overflow-hidden rounded-card bg-rosa/40 shadow-sm">
               <img
                 src="/placeholder.svg?height=440&width=440&query=ninos jugando con burbujas en celebracion"
                 alt="Niños jugando con burbujas durante una celebración"

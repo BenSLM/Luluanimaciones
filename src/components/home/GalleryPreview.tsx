@@ -39,7 +39,7 @@ export function GalleryPreview() {
                 type="button"
                 onClick={() => setActive(i)}
                 aria-label={`Ver foto: ${item.caption}`}
-                className={`group relative overflow-hidden rounded-marca bg-rosa-suave ${spanClass}`}
+                className={`group relative overflow-hidden rounded-card bg-rosa-suave ${spanClass}`}
               >
                 <img
                   src={item.src}

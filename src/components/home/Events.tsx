@@ -15,7 +15,7 @@ export function Events() {
           {EVENT_TYPES.map((event) => (
             <article
               key={event.id}
-              className="flex flex-col gap-2 rounded-marca bg-crema p-6 transition-transform hover:-translate-y-1"
+              className="flex flex-col gap-2 rounded-card bg-crema p-6 transition-transform hover:-translate-y-1"
             >
               <h3 className="text-lg font-bold">{event.name}</h3>
               <p className="text-sm leading-relaxed text-tinta-suave">

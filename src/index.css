@@ -19,7 +19,11 @@
   --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
   --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --radius-marca: 1.5rem;
+  /* Border-radius scale: applied by function and visual hierarchy */
+  --radius-sm: 0.75rem; /* small elements / interactive controls */
+  --radius-card: 1.25rem; /* informative cards */
+  --radius-marca: 1.5rem; /* main surfaces */
+  --radius-burbuja: 2rem 0.75rem; /* hero elements / large CTAs (asymmetric) */
 }
 
 @layer base {

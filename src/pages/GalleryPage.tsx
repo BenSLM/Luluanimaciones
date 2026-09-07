@@ -78,7 +78,7 @@ export default function GalleryPage() {
           </div>
 
           {items.length === 0 ? (
-            <div className="mt-12 flex flex-col items-center gap-4 rounded-marca border border-dashed border-borde bg-white py-16 text-center">
+            <div className="mt-12 flex flex-col items-center gap-4 rounded-card border border-dashed border-borde bg-white py-16 text-center">
               <p className="font-display text-xl font-bold">
                 Aún no hay trabajos en esta categoría
               </p>
@@ -98,7 +98,7 @@ export default function GalleryPage() {
                   type="button"
                   onClick={() => setActive(i)}
                   aria-label={`Ver foto: ${item.caption}`}
-                  className="group mb-3 block w-full overflow-hidden rounded-marca bg-rosa-suave md:mb-4"
+                  className="group mb-3 block w-full overflow-hidden rounded-card bg-rosa-suave md:mb-4"
                 >
                   <span className="relative block">
                     <img

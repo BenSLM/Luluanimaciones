@@ -5,7 +5,7 @@ export function FinalCta() {
   return (
     <section className="py-16 md:py-24">
       <div className="contenedor">
-        <div className="relative overflow-hidden rounded-marca bg-rosa px-6 py-14 text-center md:px-12 md:py-20">
+        <div className="relative overflow-hidden rounded-burbuja bg-rosa px-6 py-14 text-center md:px-12 md:py-20">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-crema/30 blur-xl"

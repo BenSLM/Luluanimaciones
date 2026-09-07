@@ -17,7 +17,7 @@ export function Services() {
           {SERVICES.map((service) => (
             <article
               key={service.id}
-              className="group flex flex-col overflow-hidden rounded-marca border border-borde bg-white transition-shadow hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-card border border-borde bg-white transition-shadow hover:shadow-md"
             >
               <div className="aspect-[4/3] overflow-hidden bg-rosa-suave">
                 <img
