@@ -89,6 +89,33 @@ Especificación aprobada: escala reutilizable de radios aplicados según funció
 
 ## 11. Animaciones y vida a la página (Motion.dev)
 
-- [ ] **Agregar animaciones con Motion.dev (dependencia ya instalada)**
+- [x] **Agregar animaciones con Motion.dev (dependencia ya instalada)**
   Además del scroll reveal (fade/slide al bajar), proponer más formas de dar vida a la página (entradas escalonadas, hovers, etc.) y aplicar las elegidas (requiere decisión previa).
   Componentes home: Hero, Services, Events, GalleryPreview
+
+- [x] **Crear librería compartida de variantes para estandarizar**
+  Módulo `src/lib/animations.ts` con `fadeUp`, `fadeIn`, `scaleIn`, `staggerContainer()` y `VIEWPORT` ({once, -80px}) para que todas las entradas usen el mismo rebase.
+- [x] **`MotionConfig reducedMotion="user"` global**
+  Envolver la app en `src/App.tsx` para respetar `prefers-reduced-motion` en toda la página (se elimina el wrapper local del Hero).
+- [x] **SectionHeading — reveal estandarizado**
+  Animar `eyebrow → título → descripción` con stagger `fadeUp` al entrar en viewport (vale para Services, Events y GalleryPreview).
+- [x] **Scroll reveal estandarizado en todas las secciones**
+  Mismo patrón `staggerContainer + fadeUp/scaleIn + VIEWPORT` en Services (stagger por card), GalleryPreview (tiles), Grid de filtros y fotos de GalleryPage, Footer (columnas) y FinalCta (panel).
+- [x] **Hero — entrada del collage de fotos**
+  Las tres imágenes del collage entran con `scaleIn` escalonado; la columna de texto usa `fadeUp` escalonado (mismo rebase que el resto).
+- [x] **Hero — micro-interacciones al pasar el mouse**
+  Hover sutil con sombra/rotación/lift en las fotos del collage (polaroid se endereza y despega).
+- [x] **Events — hover en los círculos de iconos**
+  Los iconos suben y escalan con un spring suave al hacer hover, manteniendo el glow de color.
+- [x] **Lightbox — apertura/cierre y transición de imagen animadas**
+  Overlay fundido + panel con spring (scale/rise). Cambio de foto con `AnimatePresence mode="wait"` (zoom-cruce) y botones con `whileTap`. Envuelto en `AnimatePresence` en GalleryPreview y GalleryPage.
+- [x] **GalleryPage — filtros animados**
+  Botones de filtro con stagger, `whileTap` y el grid usa `AnimatePresence popLayout + layout` para que las fotos entren/salgan con stagger y refluyan al cambiar de categoría.
+- [x] **Header — entrada y pildora de navegación activa**
+  El header baja desde arriba al cargar; en la nav, la píldora de la sección activa se desliza con `layoutId`. Botones hamburguesa/cerrar con `whileTap`.
+- [x] **FinalCta — blobs flotando + reveal**
+  Los blobs de fondo flotan en loop (y ±14–18px, duraciones distintas) y el contenido entra escalonado.
+- [x] **Footer y NotFound — reveal sutil**
+  Columnas del footer escalonadas con `fadeUp`; página 404 entrada escalonada.
+- [x] **FloatingWhatsApp — entrada con spring + flotación suave**
+  Aparece con spring retardado y flota levemente (loop) sin romper el hover CSS del botón.

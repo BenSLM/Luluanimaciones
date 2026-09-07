@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom"
+import { motion } from "motion/react"
 import { WhatsAppButton } from "./WhatsAppButton"
 import { WHATSAPP_MESSAGES } from "../data/site"
+import { fadeIn, fadeUp, staggerContainer, VIEWPORT } from "../lib/animations"
 
 export function Footer() {
   return (
     <footer className="mt-20 bg-tinta text-crema">
-      <div className="contenedor grid gap-10 py-14 md:grid-cols-3">
-        <div>
+      <motion.div
+        variants={staggerContainer(0.1, 0.05)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={VIEWPORT}
+        className="contenedor grid gap-10 py-14 md:grid-cols-3"
+      >
+        <motion.div variants={fadeUp}>
           <Link to="/" className="flex items-center gap-2.5">
             <img
               src="/images/logo-lulu.jpg"
@@ -21,9 +29,12 @@ export function Footer() {
             Animación y entretenimiento para que tus celebraciones sean más
             divertidas, memorables y especiales.
           </p>
-        </div>
+        </motion.div>
 
-        <nav aria-label="Navegación del pie de página">
+        <motion.nav
+          variants={fadeUp}
+          aria-label="Navegación del pie de página"
+        >
           <h2 className="font-display text-base font-bold text-rosa">
             Explorar
           </h2>
@@ -49,9 +60,9 @@ export function Footer() {
               </Link>
             </li>
           </ul>
-        </nav>
+        </motion.nav>
 
-        <div>
+        <motion.div variants={fadeUp}>
           <h2 className="font-display text-base font-bold text-rosa">
             ¿Hablamos de tu evento?
           </h2>
@@ -64,14 +75,20 @@ export function Footer() {
               Hablar con Lulu
             </WhatsAppButton>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className="border-t border-white/10">
-        <p className="contenedor py-6 text-center text-xs text-crema/60">
+        <motion.p
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          className="contenedor py-6 text-center text-xs text-crema/60"
+        >
           Hecho con <span aria-hidden="true">❤️</span>
           <span className="sr-only">amor</span> por Lulu Animaciones
-        </p>
+        </motion.p>
       </div>
     </footer>
   )

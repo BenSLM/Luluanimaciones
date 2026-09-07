@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { motion, AnimatePresence } from "motion/react"
 import { SectionHeading } from "../SectionHeading"
 import { Lightbox } from "../Lightbox"
 import { GALLERY_PREVIEW } from "../../data/gallery"
+import { scaleIn, staggerContainer, VIEWPORT } from "../../lib/animations"
 
 export function GalleryPreview() {
   const [active, setActive] = useState<number | null>(null)
@@ -25,7 +27,13 @@ export function GalleryPreview() {
         </div>
 
         {/* Editorial asymmetric composition */}
-        <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[220px] md:grid-cols-4 md:gap-4">
+        <motion.div
+          variants={staggerContainer(0.08, 0.05)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[220px] md:grid-cols-4 md:gap-4"
+        >
           {GALLERY_PREVIEW.map((item, i) => {
             const spanClass =
               item.span === "wide"
@@ -34,9 +42,10 @@ export function GalleryPreview() {
                   ? "row-span-2"
                   : ""
             return (
-              <button
+              <motion.button
                 key={item.id}
                 type="button"
+                variants={scaleIn}
                 onClick={() => setActive(i)}
                 aria-label={`Ver foto: ${item.caption}`}
                 className={`group relative overflow-hidden rounded-card bg-rosa-suave ${spanClass}`}
@@ -52,10 +61,10 @@ export function GalleryPreview() {
                     {item.caption}
                   </span>
                 </span>
-              </button>
+              </motion.button>
             )
           })}
-        </div>
+        </motion.div>
 
         <div className="mt-8 sm:hidden">
           <Link
@@ -67,14 +76,17 @@ export function GalleryPreview() {
         </div>
       </div>
 
-      {active !== null && (
-        <Lightbox
-          items={GALLERY_PREVIEW}
-          index={active}
-          onClose={() => setActive(null)}
-          onNavigate={setActive}
-        />
-      )}
+      <AnimatePresence>
+        {active !== null && (
+          <Lightbox
+            key="galeria"
+            items={GALLERY_PREVIEW}
+            index={active}
+            onClose={() => setActive(null)}
+            onNavigate={setActive}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }

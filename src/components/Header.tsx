@@ -28,7 +28,12 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-borde bg-crema/90 backdrop-blur-md">
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-0 z-40 border-b border-borde bg-crema/90 backdrop-blur-md"
+    >
       <div className="contenedor flex h-16 items-center justify-between gap-4 md:h-20">
         <Link
           to="/"
@@ -51,15 +56,33 @@ export function Header() {
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) =>
-                `rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                  isActive && item.to === "/trabajos"
-                    ? "bg-rosa-suave text-tinta"
-                    : "text-tinta-suave hover:bg-rosa-suave/60 hover:text-tinta"
-                }`
-              }
+              className="text-sm font-semibold transition-colors"
             >
-              {item.label}
+              {({ isActive }) => {
+                const active = isActive && item.to === "/trabajos"
+                return (
+                  <span
+                    className={`relative block rounded-full px-4 py-2 transition-colors ${
+                      active
+                        ? "text-tinta"
+                        : "text-tinta-suave hover:bg-rosa-suave/60 hover:text-tinta"
+                    }`}
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="navActivo"
+                        className="absolute inset-0 rounded-full bg-rosa-suave"
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 32,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.label}</span>
+                  </span>
+                )
+              }}
             </NavLink>
           ))}
         </nav>
@@ -70,8 +93,9 @@ export function Header() {
           </WhatsAppButton>
         </div>
 
-        <button
+        <motion.button
           type="button"
+          whileTap={{ scale: 0.92 }}
           className="flex h-11 w-11 items-center justify-center rounded-sm border border-borde bg-white text-tinta lg:hidden"
           aria-expanded={open}
           aria-controls="menu-movil"
@@ -89,7 +113,7 @@ export function Header() {
               className={`h-0.5 w-full rounded bg-current transition-transform ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
             />
           </span>
-        </button>
+        </motion.button>
       </div>
 
       {createPortal(
@@ -120,8 +144,9 @@ export function Header() {
                 <span className="font-display text-lg font-extrabold tracking-tight">
                   Lulu<span className="text-rosa"> Animaciones</span>
                 </span>
-                <button
+                <motion.button
                   type="button"
+                  whileTap={{ scale: 0.92 }}
                   className="flex h-10 w-10 items-center justify-center rounded-sm border border-borde bg-white text-tinta"
                   aria-label="Cerrar menú"
                   onClick={() => setOpen(false)}
@@ -137,7 +162,7 @@ export function Header() {
                   >
                     <path d="M18 6 6 18M6 6l12 12" />
                   </svg>
-                </button>
+                </motion.button>
               </div>
               <nav
                 className="flex flex-col gap-1 px-4 py-5"
@@ -169,6 +194,6 @@ export function Header() {
         </AnimatePresence>,
         document.body,
       )}
-    </header>
+    </motion.header>
   )
 }

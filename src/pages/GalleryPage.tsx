@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { motion, AnimatePresence } from "motion/react"
 import { Lightbox } from "../components/Lightbox"
 import { WhatsAppButton } from "../components/WhatsAppButton"
 import {
@@ -7,6 +8,7 @@ import {
   type GalleryCategory,
 } from "../data/gallery"
 import { WHATSAPP_MESSAGES } from "../data/site"
+import { fadeUp, staggerContainer } from "../lib/animations"
 
 type Filter = "todas" | GalleryCategory
 
@@ -32,27 +34,46 @@ export default function GalleryPage() {
 
   return (
     <>
-      <section className="border-b border-borde bg-rosa-suave/40 py-14 md:py-20">
+      <motion.section
+        variants={staggerContainer(0.1, 0.05)}
+        initial="hidden"
+        animate="visible"
+        className="border-b border-borde bg-rosa-suave/40 py-14 md:py-20"
+      >
         <div className="contenedor flex flex-col items-start gap-4">
-          <span className="inline-flex items-center rounded-full bg-crema px-3.5 py-1 text-xs font-bold uppercase tracking-wide text-tinta">
+          <motion.span
+            variants={fadeUp}
+            className="inline-flex items-center rounded-full bg-crema px-3.5 py-1 text-xs font-bold uppercase tracking-wide text-tinta"
+          >
             Portafolio
-          </span>
-          <h1 className="text-balance text-4xl font-extrabold md:text-5xl">
+          </motion.span>
+          <motion.h1
+            variants={fadeUp}
+            className="text-balance text-4xl font-extrabold md:text-5xl"
+          >
             Nuestros trabajos
-          </h1>
-          <p className="max-w-xl text-pretty text-lg leading-relaxed text-tinta-suave">
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="max-w-xl text-pretty text-lg leading-relaxed text-tinta-suave"
+          >
             Un recorrido por las celebraciones que hemos animado. Explora por
             categoría y descubre la experiencia que llevamos a cada evento.
-          </p>
-          <WhatsAppButton message={WHATSAPP_MESSAGES.galeria} size="lg">
-            Quiero algo así para mi evento
-          </WhatsAppButton>
+          </motion.p>
+          <motion.div variants={fadeUp}>
+            <WhatsAppButton message={WHATSAPP_MESSAGES.galeria} size="lg">
+              Quiero algo así para mi evento
+            </WhatsAppButton>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       <section className="py-10 md:py-14">
         <div className="contenedor">
-          <div
+          <motion.div
+            variants={staggerContainer(0.06, 0)}
+            initial="hidden"
+            whileInView="visible"
             className="flex flex-wrap gap-2"
             role="group"
             aria-label="Filtrar trabajos por categoría"
@@ -60,9 +81,11 @@ export default function GalleryPage() {
             {FILTERS.map((f) => {
               const isActive = filter === f.value
               return (
-                <button
+                <motion.button
                   key={f.value}
                   type="button"
+                  variants={fadeUp}
+                  whileTap={{ scale: 0.92 }}
                   aria-pressed={isActive}
                   onClick={() => setFilter(f.value)}
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
@@ -72,13 +95,17 @@ export default function GalleryPage() {
                   }`}
                 >
                   {f.label}
-                </button>
+                </motion.button>
               )
             })}
-          </div>
+          </motion.div>
 
           {items.length === 0 ? (
-            <div className="mt-12 flex flex-col items-center gap-4 rounded-card border border-dashed border-borde bg-white py-16 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="mt-12 flex flex-col items-center gap-4 rounded-card border border-dashed border-borde bg-white py-16 text-center"
+            >
               <p className="font-display text-xl font-bold">
                 Aún no hay trabajos en esta categoría
               </p>
@@ -89,18 +116,28 @@ export default function GalleryPage() {
               <WhatsAppButton message={WHATSAPP_MESSAGES.general} size="md">
                 Cotizar por WhatsApp
               </WhatsAppButton>
-            </div>
+            </motion.div>
           ) : (
             <div className="mt-8 columns-2 gap-3 md:columns-3 md:gap-4 lg:columns-4">
-              {items.map((item, i) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-label={`Ver foto: ${item.caption}`}
-                  className="group mb-3 block w-full overflow-hidden rounded-card bg-rosa-suave md:mb-4"
-                >
-                  <span className="relative block">
+              <AnimatePresence initial={false} mode="popLayout">
+                {items.map((item, i) => (
+                  <motion.button
+                    key={item.id}
+                    type="button"
+                    layout
+                    initial={{ opacity: 0, scale: 0.94, y: 18 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 26,
+                      delay: i * 0.03,
+                    }}
+                    onClick={() => setActive(i)}
+                    aria-label={`Ver foto: ${item.caption}`}
+                    className="group relative mb-3 block w-full overflow-hidden rounded-card bg-rosa-suave md:mb-4"
+                  >
                     <img
                       src={item.src}
                       alt={item.alt}
@@ -112,22 +149,25 @@ export default function GalleryPage() {
                         {item.caption}
                       </span>
                     </span>
-                  </span>
-                </button>
-              ))}
+                  </motion.button>
+                ))}
+              </AnimatePresence>
             </div>
           )}
         </div>
       </section>
 
-      {active !== null && items[active] && (
-        <Lightbox
-          items={items}
-          index={active}
-          onClose={() => setActive(null)}
-          onNavigate={setActive}
-        />
-      )}
+      <AnimatePresence>
+        {active !== null && items[active] && (
+          <Lightbox
+            key="galeria"
+            items={items}
+            index={active}
+            onClose={() => setActive(null)}
+            onNavigate={setActive}
+          />
+        )}
+      </AnimatePresence>
     </>
   )
 }

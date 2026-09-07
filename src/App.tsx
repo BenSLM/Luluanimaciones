@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import { MotionConfig } from "motion/react"
 import { Header } from "./components/Header"
 import { Footer } from "./components/Footer"
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp"
@@ -9,7 +10,7 @@ import NotFoundPage from "./pages/NotFoundPage"
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <ScrollManager />
       <a
         href="#contenido"
@@ -27,6 +28,6 @@ export default function App() {
       </main>
       <Footer />
       <FloatingWhatsApp />
-    </>
+    </MotionConfig>
   )
 }

@@ -1,7 +1,9 @@
+import { motion } from "motion/react"
 import { SectionHeading } from "../SectionHeading"
 import { WhatsAppButton } from "../WhatsAppButton"
 import { SERVICES } from "../../data/services"
 import { WHATSAPP_MESSAGES } from "../../data/site"
+import { fadeUp, staggerContainer, VIEWPORT } from "../../lib/animations"
 
 export function Services() {
   return (
@@ -13,10 +15,21 @@ export function Services() {
           description="Más que servicios sueltos, armamos una experiencia completa según tu evento y las edades de tus invitados."
         />
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={staggerContainer(0.1, 0.05)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {SERVICES.map((service) => (
-            <article
+            <motion.article
               key={service.id}
+              variants={fadeUp}
+              whileHover={{
+                y: -6,
+                transition: { type: "spring", stiffness: 300, damping: 24 },
+              }}
               className="group flex flex-col overflow-hidden rounded-card border border-borde bg-white transition-shadow hover:shadow-md"
             >
               <div className="aspect-[4/3] overflow-hidden bg-rosa-suave">
@@ -41,9 +54,9 @@ export function Services() {
                   Consultar este servicio
                 </WhatsAppButton>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
