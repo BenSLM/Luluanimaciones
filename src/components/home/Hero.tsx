@@ -48,13 +48,6 @@ export function Hero() {
               Ver nuestros trabajos
             </Link>
           </div>
-
-          <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-tinta-suave">
-            <li>Cumpleaños infantiles</li>
-            <li>Baby showers</li>
-            <li>Celebraciones familiares</li>
-            <li>Eventos privados</li>
-          </ul>
         </div>
 
         {/* Photo-forward composition */}

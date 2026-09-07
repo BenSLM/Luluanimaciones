@@ -4,40 +4,6 @@ Tareas derivadas de `qa lulu.txt`. Cada hallazgo del QA se convierte en una tare
 
 > Nota: no se añaden mejoras que no estén en el QA. Las tareas [Ideas de diseño] requieren propuesta y decisión previa antes de implementar.
 
----
-
-## 1. Eliminar lista del hero
-
-- [ ] **Hero — quitar el listado de tipos de eventos**
-  Eliminar la lista `<ul>` con "Cumpleaños infantiles / Baby showers / Celebraciones familiares / Eventos privados".
-  `src/components/home/Hero.tsx:52-57`
-
----
-
-## 2. Eliminar CTA de otras celebraciones
-
-- [ ] **Events — quitar el bloque "¿Tienes otra celebración en mente?"**
-  Eliminar el bloque CTA con "¿Tienes otra celebración en mente? / Cuéntanos los detalles… / Quiero cotizar mi evento".
-  `src/components/home/Events.tsx:30-47`
-
----
-
-## 3. Eliminar sección "Sobre Lulu" y su enlace
-
-- [ ] **About — eliminar la sección completa**
-  Eliminar la sección "Sobre Lulu" (que incluye "Niño riendo con pintacaritas", "Personas de verdad, celebraciones con energía" y los párrafos de marca).
-  `src/components/home/About.tsx` (archivo completo)
-
-- [ ] **Header — quitar enlace "Sobre Lulu" del nav**
-  Eliminar la entrada del nav `{ to: "/#sobre", label: "Sobre Lulu" }`.
-  `src/components/Header.tsx:11`
-
-- [ ] **HomePage — dejar de renderizar `About`**
-  Quitar el import y el uso de `<About />`.
-  `src/pages/HomePage.tsx:5,15`
-
----
-
 ## 4. Menú burger con animación de barrido
 
 - [ ] **Header — menú móvil abriéndose de izquierda a derecha**

@@ -8,7 +8,6 @@ const NAV = [
   { to: "/#servicios", label: "Servicios" },
   { to: "/#eventos", label: "Eventos" },
   { to: "/trabajos", label: "Trabajos" },
-  { to: "/#sobre", label: "Sobre Lulu" },
 ]
 
 export function Header() {

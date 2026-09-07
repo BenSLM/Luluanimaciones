@@ -1,7 +1,5 @@
 import { SectionHeading } from "../SectionHeading"
-import { WhatsAppButton } from "../WhatsAppButton"
 import { EVENT_TYPES } from "../../data/events"
-import { WHATSAPP_MESSAGES } from "../../data/site"
 
 export function Events() {
   return (
@@ -25,25 +23,6 @@ export function Events() {
               </p>
             </article>
           ))}
-        </div>
-
-        <div className="mt-10 flex flex-col items-start gap-4 rounded-marca bg-tinta p-7 text-crema sm:flex-row sm:items-center sm:justify-between md:p-9">
-          <div>
-            <h3 className="text-xl font-bold text-crema md:text-2xl">
-              ¿Tienes otra celebración en mente?
-            </h3>
-            <p className="mt-1 text-sm text-crema/75">
-              Cuéntanos los detalles y armamos la animación ideal para tu
-              evento.
-            </p>
-          </div>
-          <WhatsAppButton
-            message={WHATSAPP_MESSAGES.general}
-            size="lg"
-            className="w-full shrink-0 sm:w-auto"
-          >
-            Quiero cotizar mi evento
-          </WhatsAppButton>
         </div>
       </div>
     </section>
