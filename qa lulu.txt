@@ -1,37 +1,4 @@
--Eliminar en el hero "Cumpleaños infantiles
-Baby showers
-Celebraciones familiares
-Eventos privados"
+-Hay elenmentos que tienen sombras y otros no, estanadarizar para la pagina. Por ejemplo el Hero tiene sombras
+, pero algunos cards no tienen.
 
--Eliminar el "¿Tienes otra celebración en mente?
-Cuéntanos los detalles y armamos la animación ideal para tu evento.
-Quiero cotizar mi evento"
-
--Eliminar el del nav y la pagina "Niño riendo con pintacaritas
-Sobre Lulu
-Personas de verdad, celebraciones con energía
-Lulu Animaciones nace del gusto por hacer que las celebraciones se sientan especiales. Nos encanta ver a los invitados participar, reírse y disfrutar cada momento.
-Trabajamos con cercanía y compromiso para que solo te preocupes de disfrutar tu evento. Nosotros ponemos la diversión."
-
--Cambiar el menu burger que aparece en celu, ahora mismo aparece al apretar horizontal hacia arriba, 
-quiero que aparezaca con una animacion , abriendose del lado izqquierdo al derecho
-
--Eliminar elemento <button type="button" aria-label="Ver foto: Celebración familiar" class="group relative overflow-hidden rounded-marca bg-rosa-suave md:col-span-2"><img alt="Familias disfrutando de una celebración con animación" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src="/placeholder.svg?height=800&amp;width=1200&amp;query=grupo%20de%20familias%20disfrutando%20una%20celebraci%C3%B3n"><span class="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-tinta/70 to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"><span class="text-sm font-semibold text-crema">Celebración familiar</span></span></button>
-
--Eliminar elemento y todo rastro en la pagina que tenga que ver con disfraces, ya que no ofrecemos ese servicio. <article class="group flex flex-col overflow-hidden rounded-marca border border-borde bg-white transition-shadow hover:shadow-md"><div class="aspect-[4/3] overflow-hidden bg-rosa-suave" bis_skin_checked="1"><img alt="Personaje disfrazado durante una celebración" loading="lazy" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" src="/placeholder.svg?height=600&amp;width=800&amp;query=personaje%20disfrazado%20saludando%20en%20fiesta"></div><div class="flex flex-1 flex-col gap-3 p-5" bis_skin_checked="1"><h3 class="text-xl font-bold">Personajes y disfraces</h3><p class="flex-1 text-sm leading-relaxed text-tinta-suave">Personajes y disfraces que suman magia al momento y hacen que la celebración sea aún más memorable.</p><a href="https://wa.me/56900000000?text=%C2%A1Hola%20Lulu!%20Me%20interesa%20el%20servicio%20de%20Personajes%20y%20disfraces.%20%C2%BFMe%20cuentan%20m%C3%A1s%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-3 focus-visible:outline-offset-2 border-2 border-tinta/15 bg-crema text-tinta hover:border-[#25D366] hover:text-[#128C40] px-5 py-2.5 text-sm mt-1 w-full"><svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg><span>Consultar este servicio</span></a></div></article>
-
--Ideas de diseño en "Animamos todo tipo de celebraciones" Y ahi aparecen cards con la informacion, se ve muy plano, aburrido, que le agregarias? 
-
--Ideas de diseño en el hero, que le agregarias? 
-
--Ideas de diseño: mucho soft border radius, que le agregarias? o como lo cambiarias?
-
--Pon el tipico made with love y el emoji de corazon al final en el footer para reemplazar todo esto "© 2026 Lulu Animaciones. Todos los derechos reservados.
-Política de privacidad
-Términos y condiciones". Con esto elimina tambien las pages D:\proyectos\Luluanimaciones\src\pages\PrivacyPage.tsx y  D:\proyectos\Luluanimaciones\src\pages\TermsPage.tsx
-
--Posibilidad de agregar animaciones y vida a la pagina web ideas, que harias? ademas las tipicas animaciones 
-slide mientras la persona va bajando, quiero que me des mas ideas de que podria agregar a la pagina para que se
-vea bonita por ejemplo usar librerias, motion.dev o gsap.com o animate-ui
-
--
+-Aplicar animaciones a elementos hay algunos que si tienen, revisa bien tiene que ver con backlog 11

@@ -2,6 +2,19 @@ import { motion } from "motion/react"
 import { SectionHeading } from "../SectionHeading"
 import { EVENT_TYPES } from "../../data/events"
 
+const containerVariants = {
+  visible: { transition: { staggerChildren: 0.12 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.7 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring" as const, stiffness: 260, damping: 20 },
+  },
+}
+
 export function Events() {
   return (
     <section id="eventos" className="scroll-mt-24 bg-azul-suave/40 py-16 md:py-24">
@@ -12,40 +25,40 @@ export function Events() {
           description="Nos adaptamos a lo que estás organizando, con la energía justa para cada momento."
         />
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {EVENT_TYPES.map((event, i) => (
-            <motion.article
-              key={event.id}
-              className="group relative flex flex-col gap-3 overflow-hidden rounded-card bg-crema p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              whileHover="hover"
-              variants={{ hover: { y: -6 } }}
-            >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -top-2 right-4 select-none font-display text-5xl font-extrabold text-tinta/10"
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-16"
+        >
+          {EVENT_TYPES.map((event) => {
+            const Icon = event.icon
+            return (
+              <motion.div
+                key={event.id}
+                variants={itemVariants}
+                className="flex flex-col items-center text-center"
               >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              <motion.span
-                variants={{ hover: { scale: 1.15, rotate: 6 } }}
-                transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                className={`flex h-12 w-12 items-center justify-center rounded-sm text-2xl ${event.accent}`}
-              >
-                <span aria-hidden="true">{event.icon}</span>
-              </motion.span>
-
-              <h3 className="text-lg font-bold">{event.name}</h3>
-              <p className="text-sm leading-relaxed text-tinta-suave">
-                {event.description}
-              </p>
-            </motion.article>
-          ))}
-        </div>
+                <div className="relative">
+                  <span
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute -inset-3 rounded-full blur-xl ${event.glow}`}
+                  />
+                  <span
+                    className={`relative flex h-16 w-16 items-center justify-center rounded-full shadow-md ${event.tone}`}
+                  >
+                    <Icon className="h-7 w-7 text-tinta" strokeWidth={2} aria-hidden="true" />
+                  </span>
+                </div>
+                <h3 className="mt-4 text-lg font-bold">{event.name}</h3>
+                <p className="mt-1 max-w-56 text-sm leading-relaxed text-tinta-suave">
+                  {event.description}
+                </p>
+              </motion.div>
+            )
+          })}
+        </motion.div>
       </div>
     </section>
   )

@@ -1,9 +1,12 @@
+import { Cake, PartyPopper, Baby, Balloon, Users, Sparkles, type LucideIcon } from "lucide-react"
+
 export interface EventType {
   id: string
   name: string
   description: string
-  icon: string
-  accent: string
+  icon: LucideIcon
+  tone: string
+  glow: string
 }
 
 export const EVENT_TYPES: EventType[] = [
@@ -11,42 +14,48 @@ export const EVENT_TYPES: EventType[] = [
     id: "cumpleanos-infantiles",
     name: "Cumpleaños infantiles",
     description: "Fiestas llenas de juegos, risas y energía para los más pequeños.",
-    icon: "🎂",
-    accent: "bg-azul-suave",
+    icon: Cake,
+    tone: "bg-rosa",
+    glow: "bg-rosa/70",
   },
   {
     id: "cumpleanos",
     name: "Cumpleaños y celebraciones",
     description: "Animación para cumpleaños de todas las edades y ocasiones especiales.",
-    icon: "🎉",
-    accent: "bg-rosa-suave",
+    icon: PartyPopper,
+    tone: "bg-amarillo",
+    glow: "bg-amarillo/70",
   },
   {
     id: "baby-showers",
     name: "Baby showers",
     description: "Momentos entretenidos para acompañar la llegada de un nuevo integrante.",
-    icon: "🍼",
-    accent: "bg-azul/40",
+    icon: Baby,
+    tone: "bg-azul",
+    glow: "bg-azul/70",
   },
   {
     id: "revelaciones-de-sexo",
     name: "Revelaciones de sexo",
     description: "Una experiencia especial para vivir la sorpresa en familia.",
-    icon: "🎈",
-    accent: "bg-rosa/40",
+    icon: Balloon,
+    tone: "bg-rosa",
+    glow: "bg-rosa/70",
   },
   {
     id: "celebraciones-familiares",
     name: "Celebraciones familiares",
     description: "Reuniones y aniversarios donde todos participan y la pasan bien.",
-    icon: "🎊",
-    accent: "bg-azul-suave",
+    icon: Users,
+    tone: "bg-amarillo",
+    glow: "bg-amarillo/70",
   },
   {
     id: "eventos-privados",
     name: "Eventos privados",
     description: "Animación a medida para celebraciones y encuentros privados.",
-    icon: "✨",
-    accent: "bg-rosa-suave",
+    icon: Sparkles,
+    tone: "bg-azul",
+    glow: "bg-azul/70",
   },
 ]

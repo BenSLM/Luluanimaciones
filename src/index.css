@@ -10,6 +10,8 @@
   --color-crema: #f9f8f2;
   --color-azul-suave: #c9dcf9;
   --color-azul: #b0cfff;
+  --color-amarillo: #ffd98e;
+  --color-amarillo-suave: #ffe9b0;
 
   /* Derived ink / support tones for contrast (not part of the rainbow) */
   --color-tinta: #2b2438;
