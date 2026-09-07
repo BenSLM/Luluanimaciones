@@ -2,9 +2,9 @@ import type { LucideIcon } from "lucide-react"
 import { Paintbrush, Mic, Dices } from "lucide-react"
 
 export interface ServiceAccent {
-  bar: string
-  chip: string
-  border: string
+  icon: string
+  shadow: string
+  hoverShadow: string
 }
 
 export interface Service {
@@ -31,9 +31,11 @@ export const SERVICES: Service[] = [
     imageAlt: "Diseño de pintacaritas colorido en una fiesta",
     icon: Paintbrush,
     accent: {
-      bar: "bg-rosa",
-      chip: "bg-rosa text-tinta",
-      border: "hover:border-rosa/70",
+      icon: "text-rosa",
+      shadow:
+        "shadow-[0_2px_6px_-1px_rgb(0_0_0/0.08),0_18px_36px_-14px_rgb(255_176_217/0.6)]",
+      hoverShadow:
+        "hover:shadow-[0_4px_12px_-2px_rgb(0_0_0/0.12),0_26px_48px_-18px_rgb(255_176_217/0.75)]",
     },
   },
   {
@@ -45,9 +47,11 @@ export const SERVICES: Service[] = [
     imageAlt: "Animadora interactuando con los invitados",
     icon: Mic,
     accent: {
-      bar: "bg-azul",
-      chip: "bg-azul text-tinta",
-      border: "hover:border-azul/70",
+      icon: "text-azul",
+      shadow:
+        "shadow-[0_2px_6px_-1px_rgb(0_0_0/0.08),0_18px_36px_-14px_rgb(176_207_255/0.6)]",
+      hoverShadow:
+        "hover:shadow-[0_4px_12px_-2px_rgb(0_0_0/0.12),0_26px_48px_-18px_rgb(176_207_255/0.75)]",
     },
   },
   {
@@ -59,9 +63,11 @@ export const SERVICES: Service[] = [
     imageAlt: "Juegos y actividades preparados para el evento",
     icon: Dices,
     accent: {
-      bar: "bg-amarillo",
-      chip: "bg-amarillo text-tinta",
-      border: "hover:border-amarillo/80",
+      icon: "text-[#e0a51b]",
+      shadow:
+        "shadow-[0_2px_6px_-1px_rgb(0_0_0/0.08),0_18px_36px_-14px_rgb(255_217_142/0.6)]",
+      hoverShadow:
+        "hover:shadow-[0_4px_12px_-2px_rgb(0_0_0/0.12),0_26px_48px_-18px_rgb(255_217_142/0.75)]",
     },
   },
 ]

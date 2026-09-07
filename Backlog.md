@@ -127,17 +127,26 @@ Especificación aprobada: escala reutilizable de radios aplicados según funció
 Especificación aprobada: la sección "Experiencias que arman el ambiente" se ve plana (peor en mobile). Solución: acento de color por card (paleta de la marca), micro-interacciones hover/tap y carrusel scroll-snap en móvil. Sin decoración excesiva.
 
 - [x] **Services — datos: agregar acento de color e icono por servicio**
-  Añadir a `Service` un campo `icon` (lucide-react, ya instalada) y `accent` con clases estáticas (`bar`, `chip`, `border`) usando la paleta: rosa, azul, amarillo.
+  Añadir a `Service` un campo `icon` (lucide-react, ya instalada) y `accent` con clases estáticas (`chip`, `shadow`, `hoverShadow`) usando la paleta: rosa, azul, amarillo.
   `src/data/services.ts`
-- [x] **Services — barra superior + chip de color con icono**
-  Cada card lleva una barra superior en su color de acento y un chip circular del mismo color sobre la foto con el icono del servicio (identidad al primer vistazo).
+- [x] **Services — card limpia: sin franja superior, chip en el límite foto/texto**
+  Se descartó la barra superior + chip en la esquina (2 acentos compitiendo). Queda un único acento de color: el chip circular con el icono montado a caballo entre la foto y el bloque blanco (`bottom-0 translate-y-1/2`), mitad foto / mitad texto. El color de marca se apoya en una **sombra suave de color por card** (rosa/azul/amarillo) en lugar de borde.
   `src/components/home/Services.tsx`
 - [x] **Services — hover/press micro-interaction: tilt + scale**
-  En desktop la card hace `scale(1.02)` + rotación `±1.5°` (alternada por índice, spring sutil) y borde en su color de acento. En mobile/touch, `whileTap` con `scale(0.97)` para que se sienta clickeable.
+  En desktop la card hace `scale(1.02)` + rotación `±1.5°` (alternada por índice, spring sutil) y su sombra de color se intensifica. En mobile/touch, `whileTap` con `scale(0.97)` para que se sienta clickeable.
   `src/components/home/Services.tsx`
-- [x] **Services — carrusel horizontal scroll-snap en mobile**
-  En `<md` las cards se muestran como carrusel con `snap-x snap-mandatory` (peek de la siguiente card, scrollbar oculta). En `md+` se mantiene el grid de 2/3 columnas.
+- [x] **Services — carrusel horizontal scroll-snap en mobile, centrado y simétrico**
+  En `<md` las cards usan `snap-center` + `scroll-padding-inline` igual al padding lateral del contenedor (`1.25rem`) para que la primera y la última card queden centradas con espacio simétrico a ambos lados. Cards `w-[calc(100%-2.5rem)]`. En `md+` se mantiene el grid de 2/3 columnas.
   `src/components/home/Services.tsx`
+- [x] **Services — carrusel coverflow (scale carousel) con Motion**
+  La card activa/centrada va a tamaño completo (`scale 1`, `opacity 1`) y las de los costados se reducen (`scale 0.9`), atenúan (`opacity 0.7`) y desenfocan (blur hasta 2px) según su distancia al centro. Se calcula por card con `useScroll` + `useTransform` (rechazado en `md+`, donde aplica el grid normal). La transición es fluida al hacer swipe/snap.
+  `src/components/home/Services.tsx`
+- [x] **Services — dots indicadores + flechas prev/next en el carrusel**
+  Debajo del carrusel (móvil): 3 dots con el activo piluleado (rosa, `aria-current` + labels) para que se entienda que hay más elementos. A los lados, flechas `ChevronLeft/Right` que navegan una card y se deshabilitan en los extremos (opacity). El índice activo se rastrea con `useMotionValueEvent` sobre `scrollX` (card más cercana al centro).
+  `src/components/home/Services.tsx`
+- [x] **Services — diferenciador por card: icono junto al título (se eliminan los chips)**
+  Se quitaron los chips circulares (2 acentos competían con la sombra). Ahora la identidad por card la da el icono lucide (`Paintbrush`/`Mic`/`Dices`) pegado al nombre en su color de acento (rosa/azul/amarillo). La sombra de color por card se mantiene como acento de fondo.
+  `src/data/services.ts` + `src/components/home/Services.tsx`
 
 ---
 
