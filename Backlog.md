@@ -8,16 +8,16 @@ Tareas derivadas de `qa lulu.txt`. Cada hallazgo del QA se convierte en una tare
 
 Cards de "Animamos todo tipo de celebraciones". Especificación aprobada: identidad por card + movimiento sutil. Sin confeti, motas ni decoración excesiva.
 
-- [ ] **Events — datos: agregar icono y color de acento por evento**
+- [x] **Events — datos: agregar icono y color de acento por evento**
   Añadir a `EventType` (y a cada entrada) un campo `icon` (emoji/carácter) y un `accent` (clase de color de acento) para las 6 celebraciones.
   `src/data/events.ts`
-- [ ] **Events — card con icono en squircle de color, acento y número ordinal**
+- [x] **Events — card con icono en squircle de color, acento y número ordinal**
   Cada card: squircle de color del `accent` con el `icon`, título, descripción, y número ordinal decorativo `01`–`06` en una esquina (tipo watermark, discreto y legible).
   `src/components/home/Events.tsx:16-28`
-- [ ] **Events — hover sutil: elevación de la card + movimiento del icono**
+- [x] **Events — hover sutil: elevación de la card + movimiento del icono**
   En hover: la card se eleva (translateY + sombra marcada) y el squircle del icono hace un pequeño rebote (spring scale). Transición suave, no agresiva.
   `src/components/home/Events.tsx:16-28`
-- [ ] **Events — entrada escalonada al hacer scroll con Motion.dev**
+- [x] **Events — entrada escalonada al hacer scroll con Motion.dev**
   Usar `motion.div` + `whileInView` con `variants` y stagger por índice (fade + rise ~24px) en el grid de cards.
   `src/components/home/Events.tsx`
 
@@ -27,22 +27,22 @@ Cards de "Animamos todo tipo de celebraciones". Especificación aprobada: identi
 
 Especificación aprobada: entrada cinética, subrayado animado, más profundidad en el collage. Sin stickers ni decoración excesiva por ahora.
 
-- [ ] **Hero — entrada escalonada de badge, título, descripción y CTAs**
+- [x] **Hero — entrada escalonada de badge, título, descripción y CTAs**
   Animar la columna de texto en `use` de carga con Motion.dev: badge → título → descripción → CTAs, con stagger (spring + leve blur→nítido). Mantener semántica y accesibilidad (`prefers-reduced-motion`).
   `src/components/home/Hero.tsx`
-- [ ] **Hero — animar el subrayado de "inolvidable"**
+- [x] **Hero — animar el subrayado de "inolvidable"**
   Reemplazar el simple color por un subrayado SVG orgánico que se dibuja solo (animar `pathLength`) bajo la palabra "inolvidable", manteniendo el color rosa.
   `src/components/home/Hero.tsx`
-- [ ] **Hero — eliminar los blobs genéricos de fondo**
+- [x] **Hero — eliminar los blobs genéricos de fondo**
   Quitar los dos divs circulares con `blur-2xl` del fondo. No reemplazarlos por otro decorado por ahora.
   `src/components/home/Hero.tsx:9-16`
-- [ ] **Hero — dar mayor profundidad al collage de imágenes**
+- [x] **Hero — dar mayor profundidad al collage de imágenes**
   Distribuir sombras direccionales más marcadas entre las fotos del mosaico (profundidad en capas), sin cambiar la composición del grid.
   `src/components/home/Hero.tsx:53-79`
-- [ ] **Hero — efecto polaroid solo en la imagen secundaria**
+- [x] **Hero — efecto polaroid solo en la imagen secundaria**
   Aplicar estilo polaroid (borde/canvas blanco + leve rotación) únicamente a UNA imagen secundaria. Al hover: se endereza y se eleva sutilmente.
   `src/components/home/Hero.tsx:64-70`
-- [ ] **Hero — hover sutil en las imágenes**
+- [x] **Hero — hover sutil en las imágenes**
   Agregar hover con leve `scale` (+1.02) y sombra que crece en las fotos del collage.
   `src/components/home/Hero.tsx:56-78`
 
