@@ -119,3 +119,33 @@ Especificación aprobada: escala reutilizable de radios aplicados según funció
   Columnas del footer escalonadas con `fadeUp`; página 404 entrada escalonada.
 - [x] **FloatingWhatsApp — entrada con spring + flotación suave**
   Aparece con spring retardado y flota levemente (loop) sin romper el hover CSS del botón.
+
+---
+
+## 12. [Diseño] Services — Cards con identidad de color + micro-interacciones
+
+Especificación aprobada: la sección "Experiencias que arman el ambiente" se ve plana (peor en mobile). Solución: acento de color por card (paleta de la marca), micro-interacciones hover/tap y carrusel scroll-snap en móvil. Sin decoración excesiva.
+
+- [x] **Services — datos: agregar acento de color e icono por servicio**
+  Añadir a `Service` un campo `icon` (lucide-react, ya instalada) y `accent` con clases estáticas (`bar`, `chip`, `border`) usando la paleta: rosa, azul, amarillo.
+  `src/data/services.ts`
+- [x] **Services — barra superior + chip de color con icono**
+  Cada card lleva una barra superior en su color de acento y un chip circular del mismo color sobre la foto con el icono del servicio (identidad al primer vistazo).
+  `src/components/home/Services.tsx`
+- [x] **Services — hover/press micro-interaction: tilt + scale**
+  En desktop la card hace `scale(1.02)` + rotación `±1.5°` (alternada por índice, spring sutil) y borde en su color de acento. En mobile/touch, `whileTap` con `scale(0.97)` para que se sienta clickeable.
+  `src/components/home/Services.tsx`
+- [x] **Services — carrusel horizontal scroll-snap en mobile**
+  En `<md` las cards se muestran como carrusel con `snap-x snap-mandatory` (peek de la siguiente card, scrollbar oculta). En `md+` se mantiene el grid de 2/3 columnas.
+  `src/components/home/Services.tsx`
+
+---
+
+## 13. [Diseño] Services — Ideas propuestas (requieren decisión)
+
+Propuestas adicionales para dar más identidad/vida a la sección (no implementadas; decidir antes):
+- [ ] **Numeral ordinal `01`–`03` como watermark** en una esquina de cada card (tipo marca, discreto).
+- [ ] **Wash de color de fondo suave por card** (degradé muy sutil del acento detrás del contenido) para diferenciar más los bloques.
+- [ ] **Flechas de navegación + dots** para el carrusel móvil (además del scroll-snap).
+- [ ] **Chip con texto corto** en lugar del icono (p. ej. "BBQ", "Pintacaritas") si se quiere reforzar el tagging.
+- [ ] **Fondo de sección con degradé suave de la paleta** (rosa-suave → azul-suave) para separar la sección del resto de la página.

@@ -102,4 +102,13 @@
     mask: radial-gradient(1.2rem at 1.6rem 100%, #0000 96%, #000) 0 100% / 3.2rem
       100% repeat-x;
   }
+
+  /* Hide scrollbars on horizontal snap carousels (mobile) */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
