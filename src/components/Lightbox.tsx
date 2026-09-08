@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import type { GalleryItem } from "../data/gallery"
 import { WhatsAppButton } from "./WhatsAppButton"
@@ -11,14 +11,20 @@ interface LightboxProps {
   onNavigate: (index: number) => void
 }
 
+const SWIPE_THRESHOLD = 80
+const SWIPE_VELOCITY = 600
+
 export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
   const item = items[index]
+  const [direction, setDirection] = useState<1 | -1>(1)
 
   const goPrev = useCallback(() => {
+    setDirection(-1)
     onNavigate((index - 1 + items.length) % items.length)
   }, [index, items.length, onNavigate])
 
   const goNext = useCallback(() => {
+    setDirection(1)
     onNavigate((index + 1) % items.length)
   }, [index, items.length, onNavigate])
 
@@ -54,7 +60,7 @@ export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
         onClick={onClose}
         aria-label="Cerrar"
         whileTap={{ scale: 0.9 }}
-        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-tinta transition-colors hover:bg-white"
+        className="absolute right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-tinta shadow-lg transition-colors hover:bg-white"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
@@ -69,7 +75,7 @@ export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
         }}
         aria-label="Anterior"
         whileTap={{ scale: 0.9 }}
-        className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-tinta transition-colors hover:bg-white md:left-6"
+        className="absolute left-3 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-tinta shadow-lg transition-colors hover:bg-white md:left-6"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
           <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
@@ -84,7 +90,7 @@ export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
         }}
         aria-label="Siguiente"
         whileTap={{ scale: 0.9 }}
-        className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-tinta transition-colors hover:bg-white md:right-6"
+        className="absolute right-3 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-tinta shadow-lg transition-colors hover:bg-white md:right-6"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
           <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -99,20 +105,34 @@ export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
         className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-marca bg-crema shadow-elevada"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative max-h-[70vh] w-full bg-rosa-suave">
+        <motion.div
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.5}
+          onDragEnd={(_, info) => {
+            const swiped =
+              Math.abs(info.offset.x) > SWIPE_THRESHOLD ||
+              Math.abs(info.velocity.x) > SWIPE_VELOCITY
+            if (!swiped) return
+            if (info.offset.x < 0) goNext()
+            else goPrev()
+          }}
+          className="relative max-h-[70vh] w-full touch-pan-y bg-rosa-suave"
+        >
           <AnimatePresence mode="wait" initial={false}>
             <motion.img
               key={item.id}
               src={item.src}
               alt={item.alt}
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="mx-auto max-h-[70vh] w-full object-contain"
+              initial={{ opacity: 0, x: 70 * direction }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -70 * direction }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              className="mx-auto max-h-[70vh] w-full object-contain select-none"
+              draggable={false}
             />
           </AnimatePresence>
-        </div>
+        </motion.div>
         <figcaption className="flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-display text-lg font-bold">{item.caption}</p>

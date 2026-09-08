@@ -182,3 +182,12 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
   Se agrega `globoflexia` al union de `GalleryCategory` y al chip de filtros de GalleryPage ("Globoflexia" entre "Juegos y actividades" y "Eventos").
 - [x] **Globoflexia — fotos reales**
   Se subieron 3 fotos a `fotos/` (`.jfif` globoflexia). El script ahora acepta `.jfif` y las convierte a WebP (640/1080). Se agregaron 3 ítems (`g17`–`g19`) en `GALLERY` con `category: "globoflexia"`, `alt` y `caption` descriptivos. El filtro ya muestra contenido.
+
+---
+
+## 16. [Lightbox] Flechas visibles + swipe táctil
+
+- [x] **Lightbox — flechas tapadas por la imagen**
+  La card del modal quedaba animada con `transform` activo, lo que creaba un contexto de stacking posterior que la pintaba encima de las flechas izquierda/derecha. Se agregó `z-30` + `shadow-lg` a flechas y botón cerrar: ahora quedan por delante y se ven nítidas.
+- [x] **Lightbox — swipe entre fotos con animación direccional**
+  El área de imagen soporta arrastre horizontal (`drag="x"` de Motion con `touch-pan-y` para no bloquear el scroll vertical). Al soltar pasado el umbral (80 px o 600 px/s) cambia a la anterior/siguiente. El cambio entre imágenes se anima con deslizamiento según la dirección (entra desde la derecha si vas a la siguiente, desde la izquierda si volvés). Sigue la navegación por teclado
