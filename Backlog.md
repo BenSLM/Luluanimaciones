@@ -158,3 +158,27 @@ Propuestas adicionales para dar más identidad/vida a la sección (no implementa
 - [ ] **Flechas de navegación + dots** para el carrusel móvil (además del scroll-snap).
 - [ ] **Chip con texto corto** en lugar del icono (p. ej. "BBQ", "Pintacaritas") si se quiere reforzar el tagging.
 - [ ] **Fondo de sección con degradé suave de la paleta** (rosa-suave → azul-suave) para separar la sección del resto de la página.
+
+---
+
+## 14. [Imágenes] Migración de fotos reales con buenas prácticas
+
+Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada en git), optimizadas a WebP multirresolución en `public/images/galeria/` (640 y 1080 px, calidad 82). Los `.heic` se ignoran. Queda **juegos** sin fotos reales aún (muestra el estado vacío si se filtra).
+
+- [x] **Imágenes — script de optimización `pnpm images`**
+  `scripts/optimize-images.mjs` con sharp: lee `fotos/*.jpg`, deduplica por hash (se detectaron `Pintacarita(7)==(2)` y `Foto grupal(2)==(1)`), transpone EXIF y emite `{slug}-640.webp` y `{slug}-1080.webp` (14 fotos únicas, ~35–150 KB c/u vs 2–5 MB originales).
+- [x] **Imágenes — migrar galería con categorías y srcset**
+  `src/data/gallery.ts` usa las 14 fotos reales (11 pintacaritas, 1 animación, 2 eventos), cada una con `alt` descriptivo, `caption`, `span` de layout y `srcset` 640w/1080w. `GalleryPreview` y `GalleryPage` consumen `srcset` + `sizes` con `loading="lazy"`/`decoding="async"`. Puede agregarse una foto nueva simplemente ejecutando `pnpm images` y agregando el ítem con el slug generado.
+- [x] **Imágenes — reutilizar fotos reales en Hero y Services**
+  El collage del Hero (3 fotos) y las cards de Services (Pintacaritas / Animación / Juegos) usan WebP reales con `srcset`, eliminando los placeholders. Header/Footer ya tenían el logo real.
+- [x] **Imágenes — ignorar fuente y `.heic` en git**
+  `.gitignore` excluye `fotos/` (solo los WebP optimizados van al repo) y los archivos `.heic`/`.HEIC`.
+
+---
+
+## 15. [Galería] Nueva categoría Globoflexia
+
+- [x] **Globoflexia — filtro en /trabajos**
+  Se agrega `globoflexia` al union de `GalleryCategory` y al chip de filtros de GalleryPage ("Globoflexia" entre "Juegos y actividades" y "Eventos").
+- [x] **Globoflexia — fotos reales**
+  Se subieron 3 fotos a `fotos/` (`.jfif` globoflexia). El script ahora acepta `.jfif` y las convierte a WebP (640/1080). Se agregaron 3 ítems (`g17`–`g19`) en `GALLERY` con `category: "globoflexia"`, `alt` y `caption` descriptivos. El filtro ya muestra contenido.

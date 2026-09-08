@@ -74,8 +74,11 @@ function ServiceCard({
           <div className="aspect-[4/3] overflow-hidden bg-rosa-suave">
             <img
               src={service.image}
+              srcSet={service.srcSet}
+              sizes="(min-width: 768px) 33vw, 100vw"
               alt={service.imageAlt}
               loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>

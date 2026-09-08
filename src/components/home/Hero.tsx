@@ -93,8 +93,10 @@ export function Hero() {
               className="group col-span-3 row-span-6 overflow-hidden rounded-burbuja bg-rosa-suave shadow-[0_30px_60px_-15px_rgba(43,36,56,0.4)]"
             >
               <img
-                src="/placeholder.svg?height=900&width=650&query=animadora sonriendo con nino en fiesta colorida"
-                alt="Animadora de Lulu compartiendo con un niño durante una fiesta"
+                src="/images/galeria/foto-grupal-payaso-1080.webp"
+                srcSet="/images/galeria/foto-grupal-payaso-640.webp 640w, /images/galeria/foto-grupal-payaso-1080.webp 1080w"
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                alt="Animadora de Lulu disfrazada de payaso compartiendo con un grupo de niños durante una fiesta"
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 fetchPriority="high"
               />
@@ -106,8 +108,10 @@ export function Hero() {
             >
               <div className="h-full w-full overflow-hidden rounded-xs">
                 <img
-                  src="/placeholder.svg?height=440&width=440&query=pintacaritas colorido en nina feliz"
+                  src="/images/galeria/foto-con-nina-pintacarita-1080.webp"
                   alt="Niña feliz con pintacaritas de colores"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -117,11 +121,13 @@ export function Hero() {
               variants={scaleIn}
               className="group col-span-2 row-span-3 overflow-hidden rounded-card bg-rosa/40 shadow-[0_18px_40px_-14px_rgba(43,36,56,0.35)]"
             >
-              <img
-                src="/placeholder.svg?height=440&width=440&query=ninos jugando con burbujas en celebracion"
-                alt="Niños jugando con burbujas durante una celebración"
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-              />
+<img
+                  src="/images/galeria/foto-grupal-1080.webp"
+                  alt="Grupo de niños en una celebración animada por Lulu"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
             </motion.div>
           </div>
         </motion.div>

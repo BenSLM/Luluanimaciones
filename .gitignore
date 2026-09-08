@@ -16,3 +16,8 @@ node_modules
 
 #Archivos no necesarios
 Auditorias/
+
+# Imagenes fuente (bruto) - no se suben al repo, solo los WebP optimizados
+fotos/
+*.heic
+*.HEIC

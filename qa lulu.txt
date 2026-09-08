@@ -2,3 +2,14 @@
 , pero algunos cards no tienen.
 
 -Aplicar animaciones a elementos hay algunos que si tienen, revisa bien tiene que ver con backlog 11
+
+
+Ideas en mejorar la seccion "Experiencias que arman el ambiente" es muy plana y aburrida casi 
+como placehorlders esto se agrava aun mas en mobile. Obviamente respetando las paleta de colores de la pagina web
+
+Alguna de mis ideas
+-Cada card tiene un color de acento distinto 
+-Horizontal scroll-snap carousel
+-Accent border / color tag top
+-5. "Hover/press micro-interaction: tilt + scale"
+En desktop, que la card haga un leve scale(1.02) + rotación de 1-2° al hacer hover. En mobile (sin hover), que tenga un feedback de active:scale-95 al tocar, para que se sienta "clickeable" y no una imagen estática.
