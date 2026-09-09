@@ -191,3 +191,21 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
   La card del modal quedaba animada con `transform` activo, lo que creaba un contexto de stacking posterior que la pintaba encima de las flechas izquierda/derecha. Se agregó `z-30` + `shadow-lg` a flechas y botón cerrar: ahora quedan por delante y se ven nítidas.
 - [x] **Lightbox — swipe entre fotos con animación direccional**
   El área de imagen soporta arrastre horizontal (`drag="x"` de Motion con `touch-pan-y` para no bloquear el scroll vertical). Al soltar pasado el umbral (80 px o 600 px/s) cambia a la anterior/siguiente. El cambio entre imágenes se anima con deslizamiento según la dirección (entra desde la derecha si vas a la siguiente, desde la izquierda si volvés). Sigue la navegación por teclado
+
+---
+
+## 17. [Galería] Preview de la landing balanceado + sistema visual unificado
+
+- [x] **Masonry sin huecos**
+  Se agrega `grid-flow-dense` al grid del preview. Los ítems "tall"/"wide" ya no dejan celdas vacías: los siguientes rellenan agujeros.
+  `src/components/home/GalleryPreview.tsx`
+- [x] **Tratamiento visual unificado de las fotos**
+  Todas las fotos comparten el mismo sistema: `ring-1 ring-tinta/10` (borde sutil consistente, `hover:ring-rosa/40`), `shadow-foto`/`shadow-elevada` uniformes, overlay de gradiente oscuro subtil en la parte inferior siempre presente y caption (nombre/evento) que aparece en hover. Se ven como piezas de un mismo sistema.
+  `src/components/home/GalleryPreview.tsx`
+- [x] **Affordance de interacción: cursor + lupa**
+  `cursor-pointer` en todas las tarjetas e ícono `ZoomIn` (lupa) en la esquina superior derecha que aparece en hover/focus con scale, indicando que abren el lightbox.
+- [x] **Preview con más fotos (10)**
+  `GALLERY_PREVIEW` pasa de 6 a 10 fotos reales (`slice(0, 10)`), balanceadas en el masonry 2/4 columnas con `grid-flow-dense`.
+- [x] **Mobile cuadrado en el preview**
+  En mobile (`<md`) todas las fotos del preview se muestran cuadradas: los spans `tall`/`wide` pasan a ser solo de desktop (`md:row-span-2`/`md:col-span-2`) y la fila del grid usa `auto-rows-[calc((100vw-3.25rem)/2)]` (ancho de columna). En `md+` mantiene el mosaico mixto (`md:auto-rows-[220px]`, 4 columnas).
+  `src/components/home/GalleryPreview.tsx`

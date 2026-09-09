@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "motion/react"
+import { ZoomIn } from "lucide-react"
 import { SectionHeading } from "../SectionHeading"
 import { Lightbox } from "../Lightbox"
 import { GALLERY_PREVIEW } from "../../data/gallery"
@@ -32,14 +33,14 @@ export function GalleryPreview() {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT}
-          className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[220px] md:grid-cols-4 md:gap-4"
+          className="mt-10 grid grid-flow-dense auto-rows-[calc((100vw-3.25rem)/2)] grid-cols-2 gap-3 md:auto-rows-[220px] md:grid-cols-4 md:gap-4"
         >
           {GALLERY_PREVIEW.map((item, i) => {
             const spanClass =
               item.span === "wide"
                 ? "md:col-span-2"
                 : item.span === "tall"
-                  ? "row-span-2"
+                  ? "md:row-span-2"
                   : ""
             return (
               <motion.button
@@ -47,8 +48,8 @@ export function GalleryPreview() {
                 type="button"
                 variants={scaleIn}
                 onClick={() => setActive(i)}
-                aria-label={`Ver foto: ${item.caption}`}
-                className={`group relative overflow-hidden rounded-card bg-rosa-suave shadow-foto transition-shadow duration-300 hover:shadow-elevada ${spanClass}`}
+                aria-label={`Ver foto ampliada: ${item.caption}`}
+                className={`group relative cursor-pointer overflow-hidden rounded-card bg-rosa-suave shadow-foto ring-1 ring-tinta/10 transition-all duration-300 hover:shadow-elevada hover:ring-rosa/40 ${spanClass}`}
               >
                 <img
                   src={item.src}
@@ -59,8 +60,19 @@ export function GalleryPreview() {
                   decoding="async"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <span className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-tinta/70 to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <span className="text-sm font-semibold text-crema">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-tinta/55 via-tinta/20 to-transparent p-3 pt-10 opacity-100 transition-opacity duration-300"
+                />
+                <span className="absolute right-2.5 top-2.5 flex h-9 w-9 scale-75 items-center justify-center rounded-full bg-tinta/55 text-crema opacity-0 backdrop-blur-sm transition-all duration-200 group-hover:scale-100 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:opacity-100">
+                  <ZoomIn
+                    className="h-4.5 w-4.5"
+                    strokeWidth={2.5}
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <span className="text-sm font-semibold text-crema drop-shadow-sm">
                     {item.caption}
                   </span>
                 </span>

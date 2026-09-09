@@ -123,7 +123,6 @@ export const GALLERY: GalleryItem[] = [
     alt: "Niña luciendo un diseño de pintacaritas",
     category: "pintacaritas",
     caption: "Pintacaritas artístico",
-    span: "tall",
   },
   {
     id: "g11",
@@ -133,16 +132,6 @@ export const GALLERY: GalleryItem[] = [
     alt: "Diseño de pintacaritas aplicado con precisión",
     category: "pintacaritas",
     caption: "Diseños personalizados",
-  },
-  {
-    id: "g12",
-    slug: "pintacarita-4",
-    src: img("pintacarita-4"),
-    srcSet: srcSet("pintacarita-4"),
-    alt: "Niña con un colorido diseño de pintacaritas",
-    category: "pintacaritas",
-    caption: "Sonrisas garantizadas",
-    span: "tall",
   },
   {
     id: "g13",
@@ -213,5 +202,5 @@ export const GALLERY: GalleryItem[] = [
   },
 ]
 
-// A curated subset used on the home page preview.
-export const GALLERY_PREVIEW = GALLERY.slice(0, 6)
+// A curated subset used on the home page preview (10 photos).
+export const GALLERY_PREVIEW = GALLERY.slice(0, 10)
