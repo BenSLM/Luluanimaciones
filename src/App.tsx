@@ -4,11 +4,13 @@ import { Header } from "./components/Header"
 import { Footer } from "./components/Footer"
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp"
 import { ScrollManager } from "./components/ScrollManager"
+import { usePageMeta } from "./lib/usePageMeta"
 import HomePage from "./pages/HomePage"
 import GalleryPage from "./pages/GalleryPage"
 import NotFoundPage from "./pages/NotFoundPage"
 
 export default function App() {
+  usePageMeta()
   return (
     <MotionConfig reducedMotion="user">
       <ScrollManager />

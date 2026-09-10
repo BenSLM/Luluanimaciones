@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from "react-router-dom"
 import { AnimatePresence, motion } from "motion/react"
 import { WhatsAppButton } from "./WhatsAppButton"
 import { WHATSAPP_MESSAGES } from "../data/site"
+import { asset } from "../lib/asset"
 
 const NAV = [
   { to: "/", label: "Inicio", end: true },
@@ -41,7 +42,7 @@ export function Header() {
           aria-label="Lulu Animaciones, ir al inicio"
         >
           <img
-            src="/images/logo-lulu.jpg"
+            src={asset("images/logo-lulu.jpg")}
             alt=""
             className="h-10 w-10 rounded-sm object-cover md:h-11 md:w-11"
           />

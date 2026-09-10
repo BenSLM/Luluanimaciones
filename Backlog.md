@@ -209,3 +209,18 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
 - [x] **Mobile cuadrado en el preview**
   En mobile (`<md`) todas las fotos del preview se muestran cuadradas: los spans `tall`/`wide` pasan a ser solo de desktop (`md:row-span-2`/`md:col-span-2`) y la fila del grid usa `auto-rows-[calc((100vw-3.25rem)/2)]` (ancho de columna). En `md+` mantiene el mosaico mixto (`md:auto-rows-[220px]`, 4 columnas).
   `src/components/home/GalleryPreview.tsx`
+
+---
+
+## 18. [SEO] Optimización para buscadores
+
+- [x] **Meta completo en `index.html`**
+  Title y description orientados a búsquedas ("animadores… cumpleaños, baby showers, pintacaritas, globoflexia, Santiago"), keywords, canonical, robots, Open Graph (es_CL) y Twitter Cards con imagen real (foto grupal payaso).
+- [x] **Datos estructurados (JSON-LD)**
+  `EntertainmentBusiness` con logo, imágenes, `areaServed` (Santiago de Chile), `priceRange` y `makesOffer` (pintacaritas, globoflexia, animación, juegos).
+- [x] **Title/description por ruta**
+  Hook `usePageMeta` en `App.tsx`: `/trabajos` tiene su propio title/description (el resto usa el default).
+- [x] **Sitemap + robots**
+  `public/sitemap.xml` (home + /trabajos) y `public/robots.txt` con referencia al sitemap.
+- [x] **Favicon robusto**
+  PNG cuadrado 128 (favicon) y 180 (apple-touch-icon) generados con sharp desde el logo, reemplazando el JPEG (que no renderizaba). Root cause real: en dev Vite duplicaba `%BASE_URL%` (`/Luluanimaciones/Luluanimaciones/...` → 404); fix con ruta relativa `images/favicon-logo.png` verificada en dev y build. Número de WhatsApp real `56946793929` (todas las CTAs).

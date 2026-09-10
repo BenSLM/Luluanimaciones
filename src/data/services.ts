@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react"
 import { Paintbrush, Mic, Dices } from "lucide-react"
+import { asset } from "../lib/asset"
 
 export interface ServiceAccent {
   icon: string
@@ -24,10 +25,9 @@ export const SERVICES: Service[] = [
     name: "Pintacaritas",
     description:
       "Diseños coloridos y personalizados que transforman a los invitados en sus personajes favoritos. Un clásico que encanta a chicos y grandes.",
-    image: "/images/galeria/foto-con-nina-pintacarita-1080.webp",
+    image: asset("images/galeria/foto-con-nina-pintacarita-1080.webp"),
     imageAlt: "Niña luciendo un diseño de pintacaritas de Lulu Animaciones",
-    srcSet:
-      "/images/galeria/foto-con-nina-pintacarita-640.webp 640w, /images/galeria/foto-con-nina-pintacarita-1080.webp 1080w",
+    srcSet: `${asset("images/galeria/foto-con-nina-pintacarita-640.webp")} 640w, ${asset("images/galeria/foto-con-nina-pintacarita-1080.webp")} 1080w`,
     icon: Paintbrush,
     accent: {
       icon: "text-rosa",
@@ -42,10 +42,9 @@ export const SERVICES: Service[] = [
     name: "Animación interactiva",
     description:
       "Dinámicas, bailes y juegos que mantienen a todos participando de principio a fin.",
-    image: "/images/galeria/foto-grupal-payaso-1080.webp",
+    image: asset("images/galeria/foto-grupal-payaso-1080.webp"),
     imageAlt: "Animadora de Lulu disfrazada de payaso jugando con los invitados",
-    srcSet:
-      "/images/galeria/foto-grupal-payaso-640.webp 640w, /images/galeria/foto-grupal-payaso-1080.webp 1080w",
+    srcSet: `${asset("images/galeria/foto-grupal-payaso-640.webp")} 640w, ${asset("images/galeria/foto-grupal-payaso-1080.webp")} 1080w`,
     icon: Mic,
     accent: {
       icon: "text-azul",
@@ -60,10 +59,9 @@ export const SERVICES: Service[] = [
     name: "Juegos y actividades",
     description:
       "Competencias, retos grupales y dinámicas armadas según la edad de los invitados, para que nadie se quede sin participar.",
-    image: "/images/galeria/foto-grupal-1080.webp",
+    image: asset("images/galeria/foto-grupal-1080.webp"),
     imageAlt: "Grupo de niños participando de las actividades del evento",
-    srcSet:
-      "/images/galeria/foto-grupal-640.webp 640w, /images/galeria/foto-grupal-1080.webp 1080w",
+    srcSet: `${asset("images/galeria/foto-grupal-640.webp")} 640w, ${asset("images/galeria/foto-grupal-1080.webp")} 1080w`,
     icon: Dices,
     accent: {
       icon: "text-[#e0a51b]",

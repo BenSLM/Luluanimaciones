@@ -1,7 +1,7 @@
 // Central place for business info. Replace the placeholder phone when the real
 // WhatsApp number is available. Everything user-facing lives in Spanish.
 
-export const WHATSAPP_NUMBER = "56900000000" // TODO: reemplazar por el número real de Lulu
+export const WHATSAPP_NUMBER = "56946793929"
 
 export function whatsappLink(message: string): string {
   const text = encodeURIComponent(message)

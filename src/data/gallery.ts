@@ -10,6 +10,8 @@
 // `pnpm images`, then append an item below using its generated slug.
 // HEIC files are never processed.
 
+import { asset } from "../lib/asset"
+
 export type GalleryCategory =
   | "pintacaritas"
   | "animacion"
@@ -38,11 +40,11 @@ export const CATEGORY_LABELS: Record<GalleryCategory, string> = {
 }
 
 function img(slug: string): string {
-  return `/images/galeria/${slug}-1080.webp`
+  return asset(`images/galeria/${slug}-1080.webp`)
 }
 
 function srcSet(slug: string): string {
-  return `/images/galeria/${slug}-640.webp 640w, /images/galeria/${slug}-1080.webp 1080w`
+  return `${asset(`images/galeria/${slug}-640.webp`)} 640w, ${asset(`images/galeria/${slug}-1080.webp`)} 1080w`
 }
 
 export const GALLERY: GalleryItem[] = [

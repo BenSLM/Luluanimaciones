@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { motion } from "motion/react"
 import { WhatsAppButton } from "./WhatsAppButton"
 import { WHATSAPP_MESSAGES } from "../data/site"
+import { asset } from "../lib/asset"
 import { fadeIn, fadeUp, staggerContainer, VIEWPORT } from "../lib/animations"
 
 export function Footer() {
@@ -17,7 +18,7 @@ export function Footer() {
         <motion.div variants={fadeUp}>
           <Link to="/" className="flex items-center gap-2.5">
             <img
-              src="/images/logo-lulu.jpg"
+              src={asset("images/logo-lulu.jpg")}
               alt=""
               className="h-11 w-11 rounded-sm object-cover"
             />
