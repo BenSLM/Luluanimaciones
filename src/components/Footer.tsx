@@ -1,0 +1,94 @@
+import { Link } from "react-router-dom"
+import { motion } from "motion/react"
+import { WhatsAppButton } from "./WhatsAppButton"
+import { WHATSAPP_MESSAGES } from "../data/site"
+import { fadeIn, fadeUp, staggerContainer, VIEWPORT } from "../lib/animations"
+
+export function Footer() {
+  return (
+    <footer className="mt-20 bg-tinta text-crema">
+      <motion.div
+        variants={staggerContainer(0.1, 0.05)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={VIEWPORT}
+        className="contenedor grid gap-10 py-14 md:grid-cols-3"
+      >
+        <motion.div variants={fadeUp}>
+          <Link to="/" className="flex items-center gap-2.5">
+            <img
+              src="/images/logo-lulu.jpg"
+              alt=""
+              className="h-11 w-11 rounded-sm object-cover"
+            />
+            <span className="font-display text-xl font-extrabold">
+              Lulu Animaciones
+            </span>
+          </Link>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-crema/70">
+            Animación para cumpleaños, baby showers y celebraciones familiares en
+            Santiago.
+          </p>
+        </motion.div>
+
+        <motion.nav
+          variants={fadeUp}
+          aria-label="Navegación del pie de página"
+        >
+          <h2 className="font-display text-base font-bold text-rosa">
+            Explorar
+          </h2>
+          <ul className="mt-4 flex flex-col gap-2.5 text-sm text-crema/75">
+            <li>
+              <Link to="/" className="hover:text-white">
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link to="/#servicios" className="hover:text-white">
+                Servicios
+              </Link>
+            </li>
+            <li>
+              <Link to="/#eventos" className="hover:text-white">
+                Eventos
+              </Link>
+            </li>
+            <li>
+              <Link to="/trabajos" className="hover:text-white">
+                Nuestros trabajos
+              </Link>
+            </li>
+          </ul>
+        </motion.nav>
+
+        <motion.div variants={fadeUp}>
+          <h2 className="font-display text-base font-bold text-rosa">
+            ¿Hablamos de tu evento?
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-crema/75">
+            Cuéntanos qué estás celebrando y te ayudamos a armar la animación
+            ideal.
+          </p>
+          <div className="mt-4">
+            <WhatsAppButton message={WHATSAPP_MESSAGES.final} size="md">
+              Contáctanos por WhatsApp
+            </WhatsAppButton>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      <div className="border-t border-white/10">
+        <motion.p
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT}
+          className="contenedor py-6 text-center text-xs text-crema/60"
+        >
+          © 2026 Lulu Animaciones
+        </motion.p>
+      </div>
+    </footer>
+  )
+}

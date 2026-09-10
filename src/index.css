@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap");
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  /* Lulu Animaciones brand palette */
+  --color-rosa: #ffb0d9;
+  --color-rosa-suave: #f9c9e2;
+  --color-crema: #f9f8f2;
+  --color-azul-suave: #c9dcf9;
+  --color-azul: #b0cfff;
+  --color-amarillo: #ffd98e;
+  --color-amarillo-suave: #ffe9b0;
+
+  /* Derived ink / support tones for contrast (not part of the rainbow) */
+  --color-tinta: #2b2438;
+  --color-tinta-suave: #5b5268;
+  --color-borde: #ece7dc;
+
+  --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Border-radius scale: applied by function and visual hierarchy */
+  --radius-sm: 0.75rem; /* small elements / interactive controls */
+  --radius-card: 1.25rem; /* informative cards */
+  --radius-marca: 1.5rem; /* main surfaces */
+  --radius-burbuja: 2rem 0.75rem; /* hero elements / large CTAs (asymmetric) */
+
+  /*
+    Soft layered shadows in neutral black tones.
+    Near layer grounds the element; far layer gives gentle depth.
+  */
+  --shadow-carta: 0 1px 2px rgb(0 0 0 / 0.06),
+    0 10px 22px -6px rgb(0 0 0 / 0.18); /* cards sobre fondo crema */
+  --shadow-foto: 0 1px 2px rgb(0 0 0 / 0.05),
+    0 12px 26px -8px rgb(0 0 0 / 0.2); /* fotos / grid editorial */
+  --shadow-elevada: 0 4px 12px -2px rgb(0 0 0 / 0.12),
+    0 18px 34px -8px rgb(0 0 0 / 0.3); /* hover / superficies destacadas */
+  --shadow-burbuja: 0 4px 12px -4px rgb(0 0 0 / 0.12),
+    0 24px 48px -12px rgb(0 0 0 / 0.28); /* CTA protagonista */
+  --shadow-header: 0 1px 2px rgb(0 0 0 / 0.04),
+    0 10px 24px -16px rgb(0 0 0 / 0.18); /* header sticky */
+  --shadow-burbuja: 0 4px 12px -6px rgb(43 36 56 / 0.12),
+    0 28px 56px -24px rgb(255 176 217 / 0.55); /* CTA protagonista */
+  --shadow-header: 0 1px 2px rgb(43 36 56 / 0.04),
+    0 10px 24px -16px rgb(43 36 56 / 0.18); /* header sticky */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-crema);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-tinta);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-azul);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .contenedor {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .contenedor {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Wavy edge used as a soft brand divider, evokes party/celebration */
+  .borde-nube {
+    -webkit-mask: radial-gradient(1.2rem at 1.6rem 100%, #0000 96%, #000) 0 100% /
+      3.2rem 100% repeat-x;
+    mask: radial-gradient(1.2rem at 1.6rem 100%, #0000 96%, #000) 0 100% / 3.2rem
+      100% repeat-x;
+  }
+
+  /* Hide scrollbars on horizontal snap carousels (mobile) */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
