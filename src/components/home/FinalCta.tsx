@@ -48,11 +48,11 @@ export function FinalCta() {
             </motion.p>
             <motion.div variants={fadeUp} className="mt-2">
               <WhatsAppButton message={WHATSAPP_MESSAGES.final} size="lg">
-                Hablar con Lulu por WhatsApp
+                Cotizar por WhatsApp
               </WhatsAppButton>
             </motion.div>
             <motion.p variants={fadeUp} className="text-sm text-tinta/60">
-              Respondemos tus dudas y revisamos la disponibilidad para tu fecha.
+              Respondemos tus dudas y revisamos la disponibilidad para tu fecha. 💃
             </motion.p>
           </motion.div>
         </motion.div>

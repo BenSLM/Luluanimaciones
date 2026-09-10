@@ -41,7 +41,7 @@ export const SERVICES: Service[] = [
     id: "animacion",
     name: "Animación interactiva",
     description:
-      "Animadores que ponen la energía justa: dinámicas, bailes y juegos que mantienen a todos participando de principio a fin.",
+      "Dinámicas, bailes y juegos que mantienen a todos participando de principio a fin.",
     image: "/images/galeria/foto-grupal-payaso-1080.webp",
     imageAlt: "Animadora de Lulu disfrazada de payaso jugando con los invitados",
     srcSet:
@@ -59,7 +59,7 @@ export const SERVICES: Service[] = [
     id: "juegos",
     name: "Juegos y actividades",
     description:
-      "Actividades pensadas para cada edad y tipo de evento, con concursos, burbujas y sorpresas que arman ambiente.",
+      "Competencias, retos grupales y dinámicas armadas según la edad de los invitados, para que nadie se quede sin participar.",
     image: "/images/galeria/foto-grupal-1080.webp",
     imageAlt: "Grupo de niños participando de las actividades del evento",
     srcSet:

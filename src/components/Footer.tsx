@@ -26,8 +26,8 @@ export function Footer() {
             </span>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-crema/70">
-            Animación y entretenimiento para que tus celebraciones sean más
-            divertidas, memorables y especiales.
+            Animación para cumpleaños, baby showers y celebraciones familiares en
+            Santiago.
           </p>
         </motion.div>
 
@@ -72,7 +72,7 @@ export function Footer() {
           </p>
           <div className="mt-4">
             <WhatsAppButton message={WHATSAPP_MESSAGES.final} size="md">
-              Hablar con Lulu
+              Contáctanos por WhatsApp
             </WhatsAppButton>
           </div>
         </motion.div>
@@ -86,8 +86,7 @@ export function Footer() {
           viewport={VIEWPORT}
           className="contenedor py-6 text-center text-xs text-crema/60"
         >
-          Hecho con <span aria-hidden="true">❤️</span>
-          <span className="sr-only">amor</span> por Lulu Animaciones
+          © 2026 Lulu Animaciones
         </motion.p>
       </div>
     </footer>

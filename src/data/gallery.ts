@@ -93,7 +93,7 @@ export const GALLERY: GalleryItem[] = [
     srcSet: srcSet("foto-con-otra-nina-pintacarita"),
     alt: "Otra niña sonriendo con un diseño de pintacaritas",
     category: "pintacaritas",
-    caption: "Sonrisas garantizadas",
+    caption: "",
     span: "tall",
   },
   {
@@ -168,7 +168,7 @@ export const GALLERY: GalleryItem[] = [
     srcSet: srcSet("pintacarita-9"),
     alt: "Niña feliz mostrando su pintacaritas",
     category: "pintacaritas",
-    caption: "Sonrisas garantizadas",
+    caption: "",
     span: "tall",
   },
   {

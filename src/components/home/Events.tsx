@@ -10,7 +10,7 @@ export function Events() {
         <SectionHeading
           eyebrow="Para cada ocasión"
           title="Animamos todo tipo de celebraciones"
-          description="Nos adaptamos a lo que estás organizando, con la energía justa para cada momento."
+          description="Nos adaptamos a lo que estés organizando."
         />
 
         <motion.div

@@ -152,7 +152,7 @@ export function Services() {
       <div className="contenedor">
         <SectionHeading
           eyebrow="Lo que hacemos"
-          title="Experiencias que arman el ambiente"
+          title="Para armar el ambiente"
           description="Más que servicios sueltos, armamos una experiencia completa según tu evento y las edades de tus invitados."
         />
 

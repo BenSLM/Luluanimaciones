@@ -16,8 +16,8 @@ export function GalleryPreview() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="Nuestro trabajo"
-            title="Momentos reales de Lulu Animaciones"
-            description="Una selección de lo que vivimos en las celebraciones. Así se ve la energía que llevamos a cada evento."
+            title="Cómo se ve un evento con nosotros"
+            description="Una selección de fotos de eventos reales, para que veas cómo trabajamos."
           />
           <Link
             to="/trabajos"

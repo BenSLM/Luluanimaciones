@@ -1,4 +1,4 @@
-import { Cake, PartyPopper, Baby, Balloon, Users, Sparkles, type LucideIcon } from "lucide-react"
+import { Cake, PartyPopper, Baby, Balloon, Users, Building2, type LucideIcon } from "lucide-react"
 
 export interface EventType {
   id: string
@@ -54,7 +54,7 @@ export const EVENT_TYPES: EventType[] = [
     id: "eventos-privados",
     name: "Eventos privados",
     description: "Animación a medida para celebraciones y encuentros privados.",
-    icon: Sparkles,
+    icon: Building2,
     tone: "bg-azul",
     glow: "bg-azul/70",
   },

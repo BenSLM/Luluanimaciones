@@ -14,21 +14,13 @@ export function Hero() {
           animate="visible"
           className="flex flex-col items-start gap-6"
         >
-          <motion.span
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-tinta-suave shadow-sm"
-          >
-            <span className="h-2 w-2 rounded-full bg-rosa" />
-            Animación y entretenimiento para eventos
-          </motion.span>
-
           <motion.h1
             variants={fadeUp}
             className="text-balance text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl"
           >
-            Hacemos que tu celebración sea{" "}
+            Animación y entretenimiento{" "}
             <span className="relative inline-block text-rosa">
-              inolvidable
+              para tu evento
               <svg
                 aria-hidden="true"
                 viewBox="0 0 220 16"
@@ -55,9 +47,9 @@ export function Hero() {
             variants={fadeUp}
             className="max-w-lg text-pretty text-lg leading-relaxed text-tinta-suave"
           >
-            En Lulu Animaciones ponemos la energía, los juegos y la magia para
-            que tu evento sea entretenido de principio a fin. Pintacaritas,
-            animación en vivo y actividades para todas las edades.
+            En Lulu Animaciones coordinamos pintacaritas, animación en vivo y juegos para
+            cumpleaños, baby showers y celebraciones familiares. Nos encargamos de
+            la entretención para que tú solo te preocupes de disfrutar.
           </motion.p>
 
           <motion.div
