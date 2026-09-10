@@ -224,3 +224,10 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
   `public/sitemap.xml` (home + /trabajos) y `public/robots.txt` con referencia al sitemap.
 - [x] **Favicon robusto**
   PNG cuadrado 128 (favicon) y 180 (apple-touch-icon) generados con sharp desde el logo, reemplazando el JPEG (que no renderizaba). Root cause real: en dev Vite duplicaba `%BASE_URL%` (`/Luluanimaciones/Luluanimaciones/...` → 404); fix con ruta relativa `images/favicon-logo.png` verificada en dev y build. Número de WhatsApp real `56946793929` (todas las CTAs).
+
+---
+
+## 19. [Infra] Fix workflow GitHub Pages (pnpm setup)
+
+- [x] `pnpm/action-setup@v4` no sabía qué versión de pnpm instalar → el job moría antes de buildear. Agregado `"packageManager": "pnpm@10.14.0"` en `package.json` (fuente única de versión) y `version: 10.14.0` explícito en `.github/workflows/deploy.yml`.
+- Nota: el warning "Node 20 is being deprecated" es informativo del runner (aquí realmente corre Node 24) y no bloquea.

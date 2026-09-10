@@ -2,6 +2,7 @@
   "name": "lulu-animaciones",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.14.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
