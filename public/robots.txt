@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://benslm.github.io/Luluanimaciones/sitemap.xml
+Sitemap: https://benslm.github.io/luluanimaciones/sitemap.xml

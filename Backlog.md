@@ -231,3 +231,10 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
 
 - [x] `pnpm/action-setup@v4` no sabía qué versión de pnpm instalar → el job moría antes de buildear. Agregado `"packageManager": "pnpm@10.14.0"` en `package.json` (fuente única de versión) y `version: 10.14.0` explícito en `.github/workflows/deploy.yml`.
 - Nota: el warning "Node 20 is being deprecated" es informativo del runner (aquí realmente corre Node 24) y no bloquea.
+
+---
+
+## 20. [Deploy] GitHub Pages sirve el subpath en minúsculas
+
+- [x] GitHub Pages normalizó la URL del proyecto a **minúsculas** (`https://benslm.github.io/luluanimaciones/`), pero la base de Vite y las URLs hardcodeadas usaban `Luluanimaciones` → assets/canonical/OG/JSON-LD/sitemap/robots apuntaban a +404 → página en blanco.
+- Cambios: `vite.config.ts` `base: "/luluanimaciones/"`; URLs hardcodeadas en `index.html` (canonical, og:url, og:image, twitter:image, JSON-LD), `public/sitemap.xml`, `public/robots.txt` y `README.md` a minúsculas. Favicon relativo intacto. Verificado en build (`/luluanimaciones/assets/...`).

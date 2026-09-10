@@ -25,7 +25,7 @@ Los `.heic` nunca se procesan. Para sumar una foto a la galería: copiarla a `fo
 pnpm build
 ```
 
-El sitio se construye con `base: "/Luluanimaciones/"` (subpath de GitHub Pages) y usa `import.meta.env.BASE_URL` para las rutas de assets y el `basename` de react-router.
+El sitio se construye con `base: "/luluanimaciones/"` (subpath de GitHub Pages, en minúsculas como lo normaliza GitHub Pages) y usa `import.meta.env.BASE_URL` para las rutas de assets y el `basename` de react-router.
 
 ## Deploy (GitHub Pages)
 
@@ -34,4 +34,4 @@ Cada push a `main` publica el sitio automáticamente vía [GitHub Actions](.gith
 1. Settings → Pages → **Source: GitHub Actions**.
 2. Push a `main`. El workflow hace `pnpm build`, copia `dist/index.html` → `dist/404.html` (para que las rutas internas como `/trabajos` funcionen al refrescar) y despliega con `actions/deploy-pages`.
 
-Sitio: https://benslm.github.io/Luluanimaciones/
+Sitio: https://benslm.github.io/luluanimaciones/
