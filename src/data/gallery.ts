@@ -1,7 +1,8 @@
 // Gallery items backed by real photos of Lulu Animaciones.
 //
 // Photos live in `public/images/galeria/` as WebP at two sizes (640 and 1080
-// px on the longest side), generated from the source JPGs in `fotos/` via:
+// px on the longest side), generated from the source photos (JPEG/PNG) in
+// `fotos/` via:
 //
 //   pnpm images
 //
@@ -50,19 +51,19 @@ function srcSet(slug: string): string {
 export const GALLERY: GalleryItem[] = [
   {
     id: "g1",
-    slug: "foto-con-nina-pintacarita",
-    src: img("foto-con-nina-pintacarita"),
-    srcSet: srcSet("foto-con-nina-pintacarita"),
-    alt: "Niña con un diseño de pintacaritas de colores",
+    slug: "pintacarita-spiderman",
+    src: img("pintacarita-spiderman"),
+    srcSet: srcSet("pintacarita-spiderman"),
+    alt: "Invitado luciendo un diseño de pintacaritas de Spiderman",
     category: "pintacaritas",
     caption: "Pintacaritas artístico",
     span: "tall",
   },
   {
     id: "g2",
-    slug: "foto-grupal-payaso",
-    src: img("foto-grupal-payaso"),
-    srcSet: srcSet("foto-grupal-payaso"),
+    slug: "foto-grupal-payaso-lulu",
+    src: img("foto-grupal-payaso-lulu"),
+    srcSet: srcSet("foto-grupal-payaso-lulu"),
     alt: "Animadora disfrazada de payaso jugando con un grupo de niños",
     category: "animacion",
     caption: "Animación en vivo",
@@ -70,10 +71,10 @@ export const GALLERY: GalleryItem[] = [
   },
   {
     id: "g3",
-    slug: "foto-grupal",
-    src: img("foto-grupal"),
-    srcSet: srcSet("foto-grupal"),
-    alt: "Grupo de niños celebrando juntos durante un evento",
+    slug: "foto-grupal-nueva",
+    src: img("foto-grupal-nueva"),
+    srcSet: srcSet("foto-grupal-nueva"),
+    alt: "Grupo de niños celebrando durante un evento animado por Lulu",
     category: "eventos",
     caption: "Celebraciones grupales",
     span: "wide",
@@ -86,16 +87,6 @@ export const GALLERY: GalleryItem[] = [
     alt: "Niña con un diseño de pintacaritas en la cara",
     category: "pintacaritas",
     caption: "Diseños personalizados",
-    span: "tall",
-  },
-  {
-    id: "g6",
-    slug: "foto-con-otra-nina-pintacarita",
-    src: img("foto-con-otra-nina-pintacarita"),
-    srcSet: srcSet("foto-con-otra-nina-pintacarita"),
-    alt: "Otra niña sonriendo con un diseño de pintacaritas",
-    category: "pintacaritas",
-    caption: "",
     span: "tall",
   },
   {
@@ -115,7 +106,7 @@ export const GALLERY: GalleryItem[] = [
     alt: "Celebración con un grupo grande de niños y animadora",
     category: "eventos",
     caption: "Eventos y celebraciones",
-    span: "wide",
+    span: "tall",
   },
   {
     id: "g10",

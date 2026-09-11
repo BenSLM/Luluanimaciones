@@ -246,3 +246,19 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
 - [x] Botones circulares de **Instagram** y **Facebook** en la columna de la marca del footer (primera columna, bajo la descripción): discretos, borde sutil, hover rosa. SVG inline (lucide-react de esta versión no trae iconos de marcas).
 - [x] Links en `src/data/site.ts` → `SOCIAL_LINKS` (Instagram limpio sin `?stkn=` de tracking).
 - [x] `sameAs` agregado al JSON-LD del `index.html` (SEO).
+
+---
+
+## 22. [Galería] Alta/baja y reemplazos de fotos
+
+- [x] **Eliminadas**: `foto-con-nina-pintacarita`, `foto-grupal`, `foto-grupal-payaso` (sus 640/1080.webp).
+- [x] **Reemplazadas** (mismo slug, contenido nuevo, vía `pnpm images`): `foto-grupal-1` (nueva `foto-grupal-1.jpg`), `pintacarita-5` (nueva `pintacarita-5.PNG`).
+- [x] **Nuevas**: `foto-grupal-nueva` (foto grupal nueva.PNG, eventos/wide), `foto-grupal-payaso-lulu` (payaso-lulu.jpg, animacion/wide), `pintacarita-spiderman` (spiderman.PNG, pintacaritas/tall — se sumó además porque el slot de pintacaritas quedaba vacío).
+- [x] `scripts/optimize-images.mjs` ahora procesa también `.png` (antes solo jpeg/jfif).
+- [x] Slots actualizados para que no quede nada en blanco: `gallery.ts` (16 ítems), `Hero.tsx` (payaso-lulu, spiderman, grupal-nueva), `services.ts` (pintacaritas→spiderman, animación→payaso-lulu, juegos→grupal-nueva), meta OG/Twitter/JSON-LD → `foto-grupal-payaso-lulu`. `foto-grupal-1` pasa a `span: "tall"` (la nueva es portrait). Build OK.
+
+---
+
+## 23. [Galería] Baja `foto-con-otra-nina-pintacarita`
+
+- [x] Eliminados `foto-con-otra-nina-pintacarita-{640,1080}.webp` y su ítem `g6` en `src/data/gallery.ts` (única referencia). Galería queda en 15 ítems, sin huecos (el grid reacomoda). Build OK.

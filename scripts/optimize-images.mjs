@@ -26,7 +26,7 @@ function slugify(name) {
 
 const files = fs
   .readdirSync(SRC)
-  .filter((f) => /\.(jpe?g|jfif)$/i.test(f))
+  .filter((f) => /\.(jpe?g|jfif|png)$/i.test(f))
   .sort()
 
 const seen = new Map()
