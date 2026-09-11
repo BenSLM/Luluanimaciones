@@ -262,3 +262,13 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
 ## 23. [Galería] Baja `foto-con-otra-nina-pintacarita`
 
 - [x] Eliminados `foto-con-otra-nina-pintacarita-{640,1080}.webp` y su ítem `g6` en `src/data/gallery.ts` (única referencia). Galería queda en 15 ítems, sin huecos (el grid reacomoda). Build OK.
+
+---
+
+## 24. [Host] Vercel como host principal + Analytics
+
+- [x] **Base adaptable por entorno**: `vite.config.ts` usa `/` si `VERCEL=1` (Vercel la setea solo) y `/luluanimaciones/` en caso contrario (GitHub Pages). `import.meta.env.BASE_URL` propaga todo lo demás (assets, `basename`, `asset()`). `VITE_BASE` permite forzar.
+- [x] **`vercel.json`**: fallback SPA `/* → /index.html` para que `/trabajos` funcione al refrescar.
+- [x] **Vercel Analytics**: `pnpm add @vercel/analytics` y `<Analytics />` desde `@vercel/analytics/react` en `src/main.tsx` (guía oficial para Vite/React; la de Next.js no aplica).
+- [x] **SEO → Vercel**: canonical/OG/Twitter/JSON-LD (`index.html`), `sitemap.xml` y `robots.txt` apuntan a `https://luluanimaciones.vercel.app/`.
+- [x] Builds verificados: `VERCEL=1` → `/assets/...` (raíz); normal → `/luluanimaciones/assets/...`. Analytics presente (`va.vercel-scripts.com`). README actualizado.

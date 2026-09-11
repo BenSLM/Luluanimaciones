@@ -25,13 +25,9 @@ Los `.heic` nunca se procesan. Para sumar una foto a la galería: copiarla a `fo
 pnpm build
 ```
 
-El sitio se construye con `base: "/luluanimaciones/"` (subpath de GitHub Pages, en minúsculas como lo normaliza GitHub Pages) y usa `import.meta.env.BASE_URL` para las rutas de assets y el `basename` de react-router.
+La `base` de Vite se adapta al host: en **Vercel** (despliegue en la raíz) es `/` y en GitHub Pages es `/luluanimaciones/`. Vercel setea la env `VERCEL=1` durante su build, así que no hay que configurar nada; para forzar una base usá `VITE_BASE`.
 
-## Deploy (GitHub Pages)
+## Deploy
 
-Cada push a `main` publica el sitio automáticamente vía [GitHub Actions](.github/workflows/deploy.yml). Configuración inicial (una sola vez):
-
-1. Settings → Pages → **Source: GitHub Actions**.
-2. Push a `main`. El workflow hace `pnpm build`, copia `dist/index.html` → `dist/404.html` (para que las rutas internas como `/trabajos` funcionen al refrescar) y despliega con `actions/deploy-pages`.
-
-Sitio: https://benslm.github.io/luluanimaciones/
+- **Vercel (host principal)**: `https://luluanimaciones.vercel.app/`. Cada push a `main` redeploya automáticamente. `vercel.json` hace fallback SPA (`/*` → `/index.html`) para que `/trabajos` funcione al refrescar.
+- **GitHub Pages (respaldo)**: cada push a `main` publica el sitio vía [GitHub Actions](.github/workflows/deploy.yml). Configuración inicial: Settings → Pages → **Source: GitHub Actions**. Con `base` `/luluanimaciones/` (build sin `VERCEL`).
