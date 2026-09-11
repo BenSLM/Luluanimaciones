@@ -238,3 +238,11 @@ Reemplazar los placeholders por las fotos reales de `fotos/` (fuente, ignorada e
 
 - [x] GitHub Pages normalizó la URL del proyecto a **minúsculas** (`https://benslm.github.io/luluanimaciones/`), pero la base de Vite y las URLs hardcodeadas usaban `Luluanimaciones` → assets/canonical/OG/JSON-LD/sitemap/robots apuntaban a +404 → página en blanco.
 - Cambios: `vite.config.ts` `base: "/luluanimaciones/"`; URLs hardcodeadas en `index.html` (canonical, og:url, og:image, twitter:image, JSON-LD), `public/sitemap.xml`, `public/robots.txt` y `README.md` a minúsculas. Favicon relativo intacto. Verificado en build (`/luluanimaciones/assets/...`).
+
+---
+
+## 21. [UI] Redes sociales en el footer
+
+- [x] Botones circulares de **Instagram** y **Facebook** en la columna de la marca del footer (primera columna, bajo la descripción): discretos, borde sutil, hover rosa. SVG inline (lucide-react de esta versión no trae iconos de marcas).
+- [x] Links en `src/data/site.ts` → `SOCIAL_LINKS` (Instagram limpio sin `?stkn=` de tracking).
+- [x] `sameAs` agregado al JSON-LD del `index.html` (SEO).

@@ -3,6 +3,12 @@
 
 export const WHATSAPP_NUMBER = "56946793929"
 
+export const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/luluanimaciones.cl",
+  facebook:
+    "https://www.facebook.com/share/1DiwEHwQHC/",
+}
+
 export function whatsappLink(message: string): string {
   const text = encodeURIComponent(message)
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`

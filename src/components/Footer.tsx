@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom"
 import { motion } from "motion/react"
 import { WhatsAppButton } from "./WhatsAppButton"
-import { WHATSAPP_MESSAGES } from "../data/site"
+import { WHATSAPP_MESSAGES, SOCIAL_LINKS } from "../data/site"
 import { asset } from "../lib/asset"
 import { fadeIn, fadeUp, staggerContainer, VIEWPORT } from "../lib/animations"
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  )
+}
 
 export function Footer() {
   return (
@@ -30,6 +48,30 @@ export function Footer() {
             Animación para cumpleaños, baby showers y celebraciones familiares en
             Santiago.
           </p>
+          <ul className="mt-5 flex items-center gap-3" aria-label="Redes sociales">
+            <li>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Lulu Animaciones"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-crema/80 transition-colors hover:border-rosa hover:bg-rosa hover:text-tinta"
+              >
+                <InstagramIcon className="h-[18px] w-[18px]" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Lulu Animaciones"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-crema/80 transition-colors hover:border-rosa hover:bg-rosa hover:text-tinta"
+              >
+                <FacebookIcon className="h-[18px] w-[18px]" aria-hidden="true" />
+              </a>
+            </li>
+          </ul>
         </motion.div>
 
         <motion.nav
